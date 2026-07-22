@@ -1,0 +1,12 @@
+/* Orchid
+ * VIOLET HAZE #FBEFFB
+ * WISTERIA SILK #E794C9
+ * CLEAR WISTERIA #9678CE
+ * CLEAR HANADA #4A3894
+ */
+.gradient-kochouran {
+  position: relative;
+  background: linear-gradient(135deg in oklab, oklch(96.5% 0.0203 325.7) 12.5%, oklch(76.6% 0.1196 341.6) 37.5%, oklch(63.7% 0.1287 298.8) 62.5%, oklch(41.4% 0.1445 287.3) 87.5%);
+  /* soft fallback: CSS cannot draw the mesh field. Export SVG or PNG for the real thing. */
+  /* soften: filter: blur(80px) on an oversized layer */
+}

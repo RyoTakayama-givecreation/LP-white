@@ -1,0 +1,1580 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="これまでの経験を活かし、新たなキャリアへ踏み出すためのGIVE CREATIONの転職支援サービスです。経験の棚卸しから、年収と働き方の両方に納得できる転職まで伴走します。">
+  <title>その経験、もっと評価される会社がある。｜GIVE CREATION</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Montserrat:wght@600;700;800&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #102b52;
+      --navy-deep: #071c36;
+      --blue: #1769b0;
+      --sky: #1ea1e4;
+      --purple: #5634b5;
+      --orange: #ff4f3d;
+      --orange-dark: #e63f2f;
+      --gold: #efbd49;
+      --gold-deep: #a97924;
+      --ink: #12243b;
+      --muted: #27313d;
+      --faint: #788394;
+      --line: #dfe5ec;
+      --mist: #f3f6f9;
+      --white: #fff;
+      --shadow: 0 18px 44px rgba(16, 43, 82, .12);
+      --sans: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      --serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      --num: "Montserrat", "Noto Sans JP", sans-serif;
+      --display-num: "Barlow Condensed", "Arial Narrow", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: var(--sans);
+      font-feature-settings: "palt";
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.9;
+    }
+    img { display: block; max-width: 100%; }
+    button, input, select { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    p, li { letter-spacing: .03em; }
+    :focus-visible { outline: 3px solid rgba(23, 105, 176, .5); outline-offset: 2px; }
+
+    .en { font-family: var(--num); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .num { font-family: var(--display-num); font-weight: 700; letter-spacing: .015em; font-variant-numeric: tabular-nums; }
+    .u-note { color: var(--faint); font-size: 11px; line-height: 1.8; }
+
+    /* ============ 出現・ハイライト ============ */
+    .rev { opacity: 0; transform: translateY(22px); transition: opacity .75s ease, transform .75s cubic-bezier(.22, .74, .22, 1); }
+    .rev.is-visible { opacity: 1; transform: none; }
+    .rev-d1 { transition-delay: .08s; }
+    .rev-d2 { transition-delay: .16s; }
+    .rev-d3 { transition-delay: .24s; }
+    .mark {
+      padding: 0 .05em;
+      background-image: linear-gradient(90deg, rgba(255, 218, 82, .94), rgba(255, 151, 112, .72));
+      background-repeat: no-repeat;
+      background-position: left bottom .04em;
+      background-size: 0% .22em;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      transition: background-size .95s cubic-bezier(.22, .74, .22, 1) .2s;
+    }
+    .is-visible .mark, .mark.is-visible { background-size: 100% .22em; }
+
+    /* ============ ボタン（ブルーカラーLP踏襲） ============ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 54px; padding: 14px 20px;
+      border: 0; border-radius: 999px;
+      font-weight: 700; cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background-position .3s ease, color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(105deg, var(--sky) 0%, var(--blue) 48%, var(--purple) 100%);
+      background-size: 140% 100%;
+      background-position: left center;
+      box-shadow: 0 9px 22px rgba(62, 79, 181, .28);
+    }
+    .btn-primary:hover { background-position: right center; box-shadow: 0 11px 24px rgba(62, 79, 181, .34); }
+    .btn-secondary {
+      color: var(--blue);
+      background: linear-gradient(145deg, #ffffff 0%, #f2f8fd 100%);
+      border: 2px solid var(--blue);
+    }
+    .btn-secondary:hover { color: var(--purple); border-color: var(--purple); box-shadow: 0 9px 20px rgba(16, 43, 82, .12); }
+    .inline-cta { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 34px; text-align: left; }
+    .inline-cta p { margin: 0; color: var(--muted); font-size: 12.5px; font-weight: 600; line-height: 1.7; }
+    .inline-cta .btn { min-width: 250px; min-height: 50px; border-radius: 7px; font-size: 13px; }
+
+    /* ============ 追従ヘッダー ============ */
+    .site-header {
+      display: flex;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+      align-items: center; gap: 12px;
+      height: 72px; padding: 0 clamp(22px, 4vw, 64px);
+      background: rgba(255, 255, 255, .92);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 28px rgba(7, 28, 54, .06);
+      backdrop-filter: blur(16px) saturate(1.08);
+    }
+    .site-header img { height: 31px; width: auto; mix-blend-mode: multiply; }
+    .site-nav { display: flex; align-items: center; gap: clamp(18px, 2.5vw, 36px); margin-left: auto; }
+    .site-nav a { color: var(--muted); font-size: 11.5px; font-weight: 600; transition: color .2s ease; }
+    .site-nav a:hover { color: var(--blue); }
+    .site-header .btn { min-height: 42px; padding: 8px 22px; font-size: 12.5px; }
+
+    .page { background: #fff; position: relative; overflow-x: clip; }
+
+    /* ============ FV（16:9くらいのコンパクトさ） ============ */
+    .hero {
+      position: relative;
+      display: flex; align-items: center;
+      min-height: clamp(540px, 46vw, 640px);
+      background:
+        radial-gradient(620px 340px at 82% 18%, rgba(30, 161, 228, .12), transparent 68%),
+        radial-gradient(520px 320px at 12% 88%, rgba(86, 52, 181, .09), transparent 70%),
+        linear-gradient(180deg, #f3f5fb 0%, #eef4f9 100%);
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: .4; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(16, 43, 82, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 43, 82, .05) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      width: min(1280px, 100%);
+      margin: 0 auto;
+      padding: 96px clamp(32px, 5vw, 76px) 28px;
+      display: grid;
+      grid-template-columns: minmax(480px, 1fr) minmax(380px, .82fr);
+      gap: clamp(10px, 2vw, 30px);
+      align-items: stretch;
+    }
+    .hero-copy { position: relative; z-index: 3; align-self: center; padding-bottom: 8px; }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 18px; padding: 8px 14px;
+      background: rgba(255, 255, 255, .78);
+      border: 1px solid rgba(23, 105, 176, .38);
+      border-radius: 4px;
+      color: var(--blue); font-size: 12.5px; font-weight: 600;
+    }
+    .hero-kicker::before { content: ""; width: 8px; height: 8px; background: var(--orange); transform: rotate(45deg); }
+    .hero h1 {
+      margin: 0 0 16px;
+      font-family: var(--serif);
+      font-size: clamp(36px, 3.6vw, 52px);
+      font-weight: 600; letter-spacing: .02em; line-height: 1.55;
+      color: var(--navy);
+    }
+    .hero h1 em { font-style: normal; color: var(--blue); }
+    .hero-mobile-break { display: none; }
+    .hero-lead { margin: 0; max-width: 560px; color: #273b55; font-size: clamp(13px, 1.05vw, 15px); line-height: 2; }
+    .hero-awards { width: min(500px, 100%); margin-top: 18px; }
+    .hero-award-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .hero-award { aspect-ratio: 1; display: grid; place-items: center; }
+    .hero-award img { width: 100%; height: 100%; object-fit: contain; }
+    .hero-award-note { margin: 8px 0 0; color: #566477; font-size: 8.5px; line-height: 1.6; text-align: center; }
+    .hero-visual { position: relative; min-height: 470px; align-self: end; pointer-events: none; }
+    .hero-visual::before {
+      content: ""; position: absolute; width: 400px; height: 400px; right: 10px; bottom: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 42% 38%, rgba(255,255,255,.94), rgba(30,161,228,.18) 54%, rgba(86,52,181,.06) 72%, transparent 73%);
+    }
+    .hero-person {
+      position: absolute; right: -137px; bottom: -34px;
+      width: min(865px, 64vw); max-width: none;
+      filter: drop-shadow(0 24px 32px rgba(7, 28, 54, .18));
+    }
+
+    /* ============ ロゴスライダー ============ */
+    .logo-marquee {
+      position: relative; z-index: 2;
+      overflow: hidden;
+      padding: 30px 0 14px;
+      background: #fff;
+      border-top: 1px solid rgba(23, 105, 176, .08);
+      border-bottom: 1px solid rgba(23, 105, 176, .08);
+    }
+    .logo-marquee-row { width: 100%; overflow: hidden; }
+    .logo-marquee-row + .logo-marquee-row { margin-top: 14px; }
+    .logo-marquee-track { display: flex; width: max-content; will-change: transform; }
+    .logo-marquee-track--ltr { animation: logo-marquee-ltr 46s linear infinite; }
+    .logo-marquee-track--rtl { animation: logo-marquee-rtl 46s linear infinite; }
+    .logo-marquee-group { display: flex; flex-shrink: 0; gap: 14px; padding-right: 14px; }
+    .logo-marquee-item { display: grid; flex: 0 0 138px; width: 138px; height: 70px; place-items: center; overflow: hidden; }
+    .logo-marquee-item img { width: 100%; height: 100%; object-fit: contain; }
+    .logo-marquee-item--shrink img { transform: scale(.64); }
+    @keyframes logo-marquee-ltr { from { transform: translate3d(-50%, 0, 0); } to { transform: translate3d(0, 0, 0); } }
+    @keyframes logo-marquee-rtl { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+    .logo-marquee .u-note { text-align: center; margin: 14px 16px 0; }
+
+    /* ============ セクション共通（ブルーカラーLP踏襲） ============ */
+    .section { padding: 86px clamp(28px, 5vw, 76px); }
+    .section-inner { width: min(1120px, 100%); margin: 0 auto; }
+    .section-head { margin-bottom: 38px; text-align: center; }
+    .section-no { display: block; margin-bottom: 10px; color: var(--sky); font-size: 12px; }
+    .section-title {
+      margin: 0;
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.6vw, 42px);
+      font-weight: 600; letter-spacing: .025em; line-height: 1.6;
+    }
+    .section-title .accent { color: var(--blue); font-weight: 700; }
+    .section-sub { margin: 14px auto 0; max-width: 660px; color: var(--muted); font-size: 14px; line-height: 1.9; letter-spacing: .05em; }
+
+    .hero-lead,
+    .pain p,
+    .reason > p,
+    .job > p,
+    .phase p,
+    .case blockquote,
+    .adviser .bio,
+    .flow-step p,
+    .faq .a p,
+    .closing-copy > p { letter-spacing: .045em; }
+
+    /* ============ 01 お悩み ============ */
+    .pains {
+      background:
+        radial-gradient(circle at 12% 4%, rgba(39, 125, 190, .14), transparent 30%),
+        linear-gradient(180deg, #dcebf6 0%, #edf5fa 52%, #f5f9fc 100%);
+    }
+    .pains-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .pain {
+      padding: 24px 26px 22px;
+      background: #fff;
+      border: 1px solid #e4e9ef;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(16, 43, 82, .05);
+    }
+    .pain small { display: block; margin-bottom: 9px; color: var(--blue); font-size: 11px; font-weight: 600; letter-spacing: .06em; }
+    .pain p { margin: 0; font-size: 15px; font-weight: 400; line-height: 1.85; }
+    .pains-answer { margin-top: 52px; text-align: center; }
+    .pains-answer h3 {
+      margin: 0 0 14px;
+      font-family: var(--serif);
+      font-size: clamp(20px, 3vw, 34px); font-weight: 600; line-height: 1.7;
+      color: var(--navy);
+    }
+    .pains-answer h3 .accent { display: inline-block; white-space: nowrap; color: var(--blue); font-weight: 700; }
+    .pains-answer h3 .mark { font-size: clamp(28px, 4vw, 46px); line-height: 1.38; letter-spacing: .015em; }
+    .pains-answer h3 .mark.is-visible { background-size: 100% .32em; }
+    .pains-answer p { max-width: 620px; margin: 0 auto; color: var(--muted); font-size: 14px; }
+
+    /* ============ 02 選ばれる理由（sticky章立て） ============ */
+    .reasons { padding-top: 68px; background: #fff; }
+    .reasons-layout { display: grid; grid-template-columns: minmax(290px, .48fr) 1fr; gap: clamp(26px, 3.5vw, 56px); align-items: start; }
+    .reasons-rail { position: sticky; top: 100px; }
+    .reasons-rail .section-head { margin-bottom: 18px; text-align: left; }
+    .reasons-rail .section-title {
+      font-size: clamp(28px, 2.7vw, 38px);
+      line-height: 1.55;
+      letter-spacing: .01em;
+    }
+    .reasons-rail .section-title .title-line { display: block; white-space: nowrap; }
+    .reasons-rail .section-sub { margin-left: 0; }
+    .reasons-nav { display: grid; gap: 4px; margin-top: 20px; }
+    .reasons-nav a {
+      display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center;
+      padding: 13px 14px; border-radius: 10px;
+      color: var(--faint); font-size: 13px; font-weight: 600;
+      border: 1px solid transparent;
+      transition: all .3s ease;
+    }
+    .reasons-nav .n { font-family: var(--display-num); font-weight: 700; font-size: 22px; line-height: 1; letter-spacing: .03em; }
+    .reasons-nav a.is-current { color: var(--navy); background: #f4f9fd; border-color: #d9e7f2; box-shadow: 0 10px 24px rgba(16, 43, 82, .06); }
+    .reasons-nav a.is-current .n { color: var(--sky); }
+    .reasons-progress { margin-top: 20px; height: 3px; border-radius: 99px; background: var(--line); overflow: hidden; }
+    .reasons-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--sky), var(--purple)); transition: width .25s ease-out; }
+
+    .reasons-list { display: grid; gap: 24px; }
+    .reason {
+      position: relative; overflow: hidden;
+      padding: clamp(28px, 3.2vw, 44px);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 40px;
+    }
+    .reason-ghost {
+      position: absolute; top: -24px; right: 8px;
+      font-family: var(--display-num); font-weight: 700; font-size: clamp(100px, 11vw, 150px); line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(23, 105, 176, .12);
+      pointer-events: none; user-select: none;
+    }
+    .reason h3 {
+      margin: 0 0 12px;
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.1vw, 26px); font-weight: 600; line-height: 1.65;
+      color: var(--navy);
+    }
+    .reason h3 .accent { color: var(--blue); font-weight: 700; }
+    .reason > p { margin: 0 0 22px; color: var(--muted); font-size: 13.5px; max-width: 560px; }
+
+    .fig { position: relative; z-index: 2; border: 1px solid var(--line); border-radius: 14px; background: #f8fafc; padding: 20px; }
+    .fig-label { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; color: var(--faint); font-size: 10.5px; font-weight: 600; letter-spacing: .08em; }
+    .fig-label::before { content: ""; width: 7px; height: 7px; background: var(--orange); transform: rotate(45deg); }
+    .fig-docs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; }
+    .fig-doc { padding: 15px 16px; border-radius: 10px; background: #fff; border: 1px solid var(--line); }
+    .fig-doc.good { border-color: rgba(23, 105, 176, .45); box-shadow: 0 10px 26px rgba(23, 105, 176, .1); }
+    .fig-doc small { display: block; margin-bottom: 7px; font-size: 10px; font-weight: 600; color: var(--faint); }
+    .fig-doc.good small { color: var(--blue); }
+    .fig-doc p { margin: 0; font-size: 12.5px; line-height: 1.85; }
+    .fig-doc .kw { background: linear-gradient(transparent 62%, rgba(255, 218, 82, .55) 62%); font-weight: 700; }
+    .fig-docs .arrow { align-self: center; color: var(--blue); font-weight: 700; }
+    .fig-checks { display: grid; gap: 8px; }
+    .fig-checks > div {
+      display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center;
+      padding: 12px 14px; border-radius: 9px; background: #fff; border: 1px solid var(--line);
+      font-size: 12.5px; font-weight: 600;
+    }
+    .fig-checks .c {
+      width: 20px; height: 20px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--sky), var(--blue));
+      color: #fff; font-size: 11px;
+    }
+    .fig-checks b { color: var(--blue); font-size: 12.5px; text-align: right; }
+    .fig-conds { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+    .fig-conds span { padding: 6px 13px; border-radius: 999px; border: 1px solid rgba(23, 105, 176, .4); color: var(--blue); font-size: 11.5px; font-weight: 600; background: #fff; }
+    .fig-match { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 15px 16px; border-radius: 10px; background: var(--navy); color: #fff; }
+    .fig-match small { display: block; color: rgba(255, 255, 255, .55); font-size: 9.5px; margin-bottom: 3px; }
+    .fig-match p { margin: 0; font-size: 12.5px; font-weight: 600; line-height: 1.65; }
+    .fig-match .ok { display: flex; flex-direction: column; align-items: flex-end; color: var(--gold); font-weight: 700; font-size: 11px; white-space: nowrap; text-align: right; }
+    .fig-match .ok .num { font-size: 20px; }
+
+    /* ============ 03 受賞実績 ============ */
+    .awards { position: relative; padding-block: 68px 58px; }
+    .awards-layout { display: grid; grid-template-columns: minmax(250px, .72fr) minmax(0, 1.7fr); gap: clamp(38px, 6vw, 84px); align-items: start; }
+    .awards-intro { min-width: 0; }
+    .awards-panel { min-width: 0; }
+    .awards-intro .section-head { margin-bottom: 0; text-align: left; }
+    .awards-intro .section-sub { margin: 22px 0 0; max-width: 330px; }
+    .awards-title-small { display: block; color: var(--navy); font-size: clamp(18px, 2.1vw, 25px); font-weight: 600; line-height: 1.55; }
+    .awards-title-main { display: block; margin: .08em 0; color: var(--blue); font-size: clamp(31px, 3.6vw, 42px); font-weight: 700; line-height: 1.45; white-space: nowrap; }
+    .awards-list { border-top: 1px solid rgba(16, 43, 82, .2); }
+    .award-card {
+      position: relative;
+      display: grid; grid-template-columns: 132px minmax(0, 1fr) auto; gap: 24px; align-items: center;
+      min-height: 146px; padding: 26px 8px;
+      border-bottom: 1px solid rgba(16, 43, 82, .16);
+      color: inherit;
+    }
+    .award-company { display: flex; flex-direction: column; gap: 9px; }
+    .award-company strong { color: var(--navy); font-family: var(--sans); font-size: 23px; font-weight: 800; letter-spacing: .06em; line-height: 1; }
+    .award-company small { color: var(--faint); font-family: var(--num); font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+    .award-copy .award-label { margin: 0 0 7px; color: var(--blue); font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+    .award-copy h3 { margin: 0; color: var(--navy); font-family: var(--serif); font-size: clamp(17px, 1.55vw, 21px); font-weight: 650; line-height: 1.55; letter-spacing: .035em; }
+    .award-copy p { margin: 8px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.8; }
+    .award-result { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; min-width: 108px; }
+    .award-result span { padding: 5px 9px; border: 1px solid rgba(86, 52, 181, .2); border-radius: 999px; background: rgba(255, 255, 255, .58); color: var(--purple); font-size: 9.5px; font-weight: 700; white-space: nowrap; }
+    .awards-note { margin: 15px 0 0; color: var(--faint); font-size: 10px; line-height: 1.7; text-align: right; }
+
+    /* ============ 04 求人例 ============ */
+    .jobs { padding-block: 58px 72px; background: #fff; }
+    .jobs-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+    .jobs-tabs button {
+      padding: 11px 22px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--line); background: #fff; color: var(--muted);
+      font-size: 13px; font-weight: 600;
+      transition: all .25s ease;
+    }
+    .jobs-tabs button.is-active {
+      border-color: transparent; color: #fff;
+      background: linear-gradient(105deg, var(--sky), var(--blue));
+      box-shadow: 0 10px 22px rgba(23, 105, 176, .3);
+    }
+    .jobs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .job {
+      display: flex; flex-direction: column;
+      padding: 24px 24px 20px;
+      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(16, 43, 82, .05);
+    }
+    .job small { display: block; margin-bottom: 6px; color: var(--blue); font-size: 11px; font-weight: 600; letter-spacing: .06em; }
+    .job h3 { margin: 0 0 10px; font-size: 15.5px; font-weight: 700; line-height: 1.65; color: var(--navy); }
+    .job .salary { margin: 0 0 12px; color: var(--navy); }
+    .job .salary .num { font-size: 29px; font-weight: 700; color: var(--blue); line-height: 1; }
+    .job .salary .unit { font-size: 12px; color: var(--faint); font-weight: 600; margin-left: 2px; }
+    .job-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .job-tags span { padding: 4px 10px; border-radius: 4px; background: #eef6fc; color: var(--blue); font-size: 10.5px; font-weight: 600; }
+    .job p { margin: auto 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .jobs .u-note { margin-top: 22px; text-align: center; }
+
+    /* ============ 05 事例カルーセル ============ */
+    .cases {
+      background:
+        radial-gradient(circle at 88% 8%, rgba(39, 125, 190, .1), transparent 32%),
+        linear-gradient(180deg, #f5f9fc, #e9f2f8 55%, #f5f9fc);
+    }
+    .cases-head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; width: min(1120px, 100%); margin: 0 auto; }
+    .cases-head-row .section-head { text-align: left; margin-bottom: 40px; }
+    .cases-arrows { display: flex; gap: 8px; margin-bottom: 46px; }
+    .cases-arrows button {
+      width: 46px; height: 46px; border-radius: 50%;
+      border: 1px solid #c8d6e2; background: #fff; cursor: pointer;
+      color: var(--blue); font-size: 16px;
+      transition: all .25s ease;
+    }
+    .cases-arrows button:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .cases-scroller {
+      display: grid; grid-auto-flow: column; grid-auto-columns: min(360px, 84vw);
+      gap: 16px;
+      margin: 0 calc(-1 * clamp(28px, 5vw, 76px));
+      padding: 6px clamp(28px, 5vw, 76px) 28px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .cases-scroller::-webkit-scrollbar { display: none; }
+    .case {
+      scroll-snap-align: center;
+      display: flex; flex-direction: column;
+      padding: 26px 26px 22px;
+      background: #fff; border: 1px solid #e4e9ef; border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .case-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .case-head i {
+      flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--sky), var(--blue));
+      font-style: normal; color: #fff; font-weight: 700; font-size: 13px;
+      display: grid; place-items: center;
+    }
+    .case-head p { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.5; color: var(--navy); }
+    .case-head small { display: block; color: var(--faint); font-size: 10.5px; font-weight: 600; }
+    .case-flow { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: stretch; margin-bottom: 12px; }
+    .case-flow > div { padding: 12px 8px; border-radius: 10px; background: var(--mist); text-align: center; }
+    .case-flow > div.to { background: linear-gradient(135deg, var(--navy), #1c3a6b); color: #fff; }
+    .case-flow small { display: block; font-size: 9px; opacity: .7; font-weight: 700; letter-spacing: .08em; }
+    .case-flow b { display: block; font-size: 12.5px; line-height: 1.55; }
+    .case-flow .arrow { align-self: center; color: var(--blue); font-weight: 700; }
+    .case-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+    .case-nums > div { padding: 10px 12px; border-radius: 9px; border: 1px solid var(--line); background: #f8fafc; }
+    .case-nums small { display: block; color: var(--faint); font-size: 9.5px; font-weight: 600; }
+    .case-nums b { color: var(--blue); font-size: 14px; font-weight: 700; }
+    .case-nums b .num { font-size: 20px; line-height: 1; }
+    .case blockquote { margin: 0; padding: 14px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; line-height: 1.85; }
+    .case blockquote .stars { display: block; margin-bottom: 6px; color: var(--gold-deep); letter-spacing: 2px; font-size: 12px; }
+    .cases .u-note { text-align: center; }
+
+    /* ============ 06 使い方 ============ */
+    .phases { background: #fff; }
+    .phases-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+      counter-reset: phase;
+      border-block: 1px solid rgba(16,43,82,.18);
+    }
+    .phase {
+      position: relative; counter-increment: phase;
+      padding: 30px 30px 28px;
+      background: rgba(255,255,255,.28); border: 0; border-right: 1px solid rgba(16,43,82,.14); border-radius: 0;
+      box-shadow: none;
+    }
+    .phase:last-child { border-right: 0; }
+    .phase::before {
+      content: "0" counter(phase); position: absolute; top: 31px; right: 28px;
+      font-family: var(--display-num); font-size: 15px; font-weight: 700; letter-spacing: .08em; color: var(--sky);
+    }
+    .phase small { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; color: var(--faint); font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+    .phase small::before { content: ""; width: 16px; height: 1px; background: var(--sky); }
+    .phase h3 { margin: 0 0 13px; padding-right: 28px; font-family: var(--serif); font-size: 19px; font-weight: 650; line-height: 1.55; color: var(--navy); }
+    .phase p { margin: 0 0 18px; color: var(--muted); font-size: 12.5px; line-height: 1.85; }
+    .phase ul { margin: 0; padding: 15px 0 0; border-top: 1px solid rgba(16,43,82,.1); list-style: none; display: grid; gap: 9px; }
+    .phase li { position: relative; padding-left: 15px; font-size: 11.5px; font-weight: 600; line-height: 1.6; color: var(--navy); }
+    .phase li::before { content: ""; position: absolute; left: 0; top: .62em; width: 4px; height: 4px; background: var(--sky); }
+
+    /* ============ 07 アドバイザー ============ */
+    .advisers { background: linear-gradient(180deg, rgba(255,255,255,.34), rgba(238,245,250,.58) 60%, rgba(255,255,255,.2)); }
+    .advisers-layout { display: block; }
+    .advisers-rail .section-head { margin-bottom: 22px; }
+    .advisers-grid {
+      display: flex; gap: 18px; overflow-x: auto; overscroll-behavior-inline: contain;
+      padding: 2px 2px 18px; scroll-snap-type: x mandatory; scrollbar-width: none;
+    }
+    .advisers-grid::-webkit-scrollbar { display: none; }
+    .adviser {
+      position: relative; overflow: hidden;
+      display: flex; flex: 0 0 calc((100% - 36px) / 3); flex-direction: column; scroll-snap-align: start;
+      padding: 0;
+      background: rgba(255,255,255,.96); border: 1px solid rgba(16,43,82,.2); border-radius: 10px;
+      box-shadow: 0 20px 48px rgba(16, 43, 82, .12);
+    }
+    .adviser-visual {
+      position: relative; height: 226px; overflow: hidden;
+      background: #202834;
+    }
+    .adviser-visual::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(10,24,42,.86) 0%, rgba(10,24,42,.55) 39%, rgba(10,24,42,.04) 72%), linear-gradient(0deg, rgba(10,24,42,.32), transparent 52%);
+    }
+    .adviser-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 68% center; }
+    .adviser-name {
+      position: absolute; z-index: 1; left: 24px; bottom: 24px;
+      color: #fff;
+    }
+    .adviser-quote {
+      position: absolute; z-index: 1; left: 24px; top: 24px;
+      width: 58%; margin: 0; padding-left: 14px;
+      border-left: 2px solid rgba(255,255,255,.78);
+      color: rgba(255,255,255,.94); font-family: var(--serif);
+      font-size: 14px; font-weight: 600; line-height: 1.72;
+      letter-spacing: .015em; text-shadow: 0 2px 14px rgba(0,0,0,.3);
+    }
+    .adviser-name h3 { margin: 0; font-family: var(--serif); font-size: 23px; font-weight: 600; letter-spacing: .04em; }
+    .adviser-name h3 span { display: block; margin-top: 4px; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: .12em; color: rgba(255,255,255,.58); }
+    .adviser-body { display: flex; flex: 1; flex-direction: column; padding: 0; }
+    .adviser-content { padding: 18px 26px 24px; }
+    .adviser-specialty { margin: 0 0 14px; color: var(--navy); font-family: var(--serif); font-size: 17px; font-weight: 650; line-height: 1.55; }
+    .adviser-tags { display: flex; flex-wrap: wrap; gap: 0; margin: 0 0 18px; border-block: 1px solid rgba(16,43,82,.12); }
+    .adviser-tags span { position: relative; padding: 9px 14px 9px 0; color: var(--blue); font-size: 11.5px; font-weight: 700; letter-spacing: .025em; }
+    .adviser-tags span + span { padding-left: 14px; }
+    .adviser-tags span + span::before { content: ""; position: absolute; left: 0; top: 9px; bottom: 9px; width: 1px; background: rgba(16,43,82,.16); }
+    .adviser .bio { margin: 0; color: var(--muted); font-size: 11.5px; line-height: 1.95; }
+    .advisers-note { margin-top: 16px; text-align: center; }
+    .advisers-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 4px; }
+    .advisers-dots { display: flex; align-items: center; gap: 7px; }
+    .advisers-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(16,43,82,.2); cursor: pointer; transition: width .25s ease, border-radius .25s ease, background .25s ease; }
+    .advisers-dots button.is-active { width: 24px; border-radius: 99px; background: var(--blue); }
+    .advisers-arrows { display: flex; gap: 7px; }
+    .advisers-arrows button { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 1px solid rgba(16,43,82,.22); border-radius: 50%; background: rgba(255,255,255,.72); color: var(--navy); font-size: 14px; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+    .advisers-arrows button:hover { border-color: var(--blue); background: #fff; color: var(--blue); }
+
+    /* ============ 08 流れ ============ */
+    .flow { background: #fff; }
+    .flow-grid {
+      position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+      padding-top: 42px;
+    }
+    .flow-grid::before,
+    .flow-grid::after { content: ""; position: absolute; z-index: 0; left: 10%; right: 10%; top: 16px; height: 2px; }
+    .flow-grid::before { background: rgba(16,43,82,.13); }
+    .flow-grid::after { background: linear-gradient(90deg, var(--sky), var(--blue), var(--purple)); transform: scaleX(0); transform-origin: left center; transition: transform 1.35s cubic-bezier(.22,.74,.22,1) .15s; }
+    .flow-grid.is-visible::after { transform: scaleX(1); }
+    .flow-step {
+      position: relative; z-index: 1;
+      padding: 12px 17px 0; text-align: center;
+      background: transparent; border: 0; border-radius: 0; box-shadow: none;
+    }
+    .flow-step::before {
+      content: ""; position: absolute; top: -35px; left: 50%; width: 12px; height: 12px;
+      border: 3px solid #fff; border-radius: 50%; background: #cbd7e1;
+      box-shadow: 0 0 0 1px rgba(16,43,82,.15); transform: translateX(-50%);
+      transition: background .3s ease, box-shadow .3s ease, transform .3s ease;
+    }
+    .flow-grid.is-visible .flow-step::before { background: var(--blue); box-shadow: 0 0 0 1px rgba(23,105,176,.25), 0 0 0 7px rgba(23,105,176,.08); transform: translateX(-50%) scale(1.08); }
+    .flow-grid.is-visible .flow-step:nth-child(1)::before { transition-delay: .2s; }
+    .flow-grid.is-visible .flow-step:nth-child(2)::before { transition-delay: .45s; }
+    .flow-grid.is-visible .flow-step:nth-child(3)::before { transition-delay: .7s; }
+    .flow-grid.is-visible .flow-step:nth-child(4)::before { transition-delay: .95s; }
+    .flow-grid.is-visible .flow-step:nth-child(5)::before { transition-delay: 1.2s; }
+    .flow-step .n { display: block; margin-bottom: 8px; font-family: var(--display-num); font-weight: 700; font-size: 17px; line-height: 1; letter-spacing: .04em; color: var(--sky); }
+    .flow-step h3 { margin: 0 0 7px; font-size: 15px; font-weight: 700; color: var(--navy); }
+    .flow-step p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.75; }
+    .flow-step small { display: block; margin-top: 9px; color: var(--blue); font-size: 9.5px; font-weight: 650; }
+
+    /* ============ 10 FAQ ============ */
+    .faq { background: #fff; }
+    .faq-list { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary {
+      list-style: none; cursor: pointer;
+      display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center;
+      padding: 23px 6px; font-size: 15px; font-weight: 600; line-height: 1.7; color: var(--navy);
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary .q { font-family: var(--num); font-weight: 800; color: var(--sky); font-size: 17px; }
+    .faq summary .plus { color: var(--blue); font-size: 21px; font-weight: 400; transition: transform .25s ease; }
+    .faq details[open] summary .plus { transform: rotate(45deg); }
+    .faq .a { display: grid; grid-template-columns: auto 1fr; gap: 16px; padding: 0 6px 24px; }
+    .faq .a .mark-a { font-family: var(--num); font-weight: 800; color: var(--orange); font-size: 17px; line-height: 1.6; }
+    .faq .a p { margin: 0; color: var(--muted); font-size: 13.5px; }
+
+    /* ============ 11 クロージング＋フッター ============ */
+    .closing {
+      padding: 88px clamp(28px, 5vw, 76px) 78px;
+      text-align: left;
+      background: linear-gradient(170deg, #0d2547, var(--navy-deep) 62%);
+      color: #fff;
+    }
+    .closing-inner { width: min(1120px, 100%); margin: 0 auto; display: grid; grid-template-columns: minmax(300px, .72fr) minmax(480px, 1fr); gap: clamp(38px, 5vw, 72px); align-items: start; }
+    .closing-copy { padding-top: 18px; }
+    .closing .section-no { color: var(--gold); }
+    .closing h2 { margin: 0 0 18px; font-family: var(--serif); font-size: clamp(28px, 3.8vw, 46px); font-weight: 600; line-height: 1.65; }
+    .closing-copy > p { max-width: 430px; margin: 0 0 26px; color: rgba(255, 255, 255, .72); font-size: 14px; line-height: 1.95; }
+    .closing-meta { display: flex; flex-wrap: wrap; gap: 7px 16px; margin: 0; color: rgba(255, 255, 255, .5); font-size: 11px; }
+    .closing-copy > .closing-meta { margin: 0; }
+    .closing-meta span { position: relative; padding-left: 14px; }
+    .closing-meta span::before { content: ""; position: absolute; left: 1px; top: .48em; width: 5px; height: 5px; border: 1px solid var(--gold); transform: rotate(45deg); }
+    .closing-form { padding: 32px 34px 30px; background: rgba(255,255,255,.96); border: 1px solid rgba(16,43,82,.14); border-radius: 12px; box-shadow: 0 24px 64px rgba(16,43,82,.14); color: var(--ink); }
+    .closing-form-head { margin-bottom: 22px; }
+    .closing-form-head small { display: block; margin-bottom: 5px; color: var(--blue); font-size: 9px; font-weight: 750; letter-spacing: .15em; }
+    .closing-form-head h3 { margin: 0 0 6px; color: var(--navy); font-family: var(--serif); font-size: 21px; font-weight: 650; }
+    .closing-form-head p { margin: 0; color: var(--muted); font-size: 11.5px; }
+    .closing-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 12px; }
+    .closing-field { display: block; }
+    .closing-field--wide { grid-column: 1 / -1; }
+    .closing-field > span { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; color: var(--navy); font-size: 10.5px; font-weight: 700; }
+    .closing-field em { padding: 2px 5px; background: var(--blue); color: #fff; font-size: 8px; font-style: normal; font-weight: 700; }
+    .closing-field input,
+    .closing-field select { width: 100%; height: 50px; padding: 0 13px; border: 1px solid #ced9e3; border-radius: 6px; background: #fff; color: var(--ink); font: inherit; font-size: 13px; outline: none; transition: border-color .2s, box-shadow .2s; }
+    .closing-field input:focus,
+    .closing-field select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(23,105,176,.1); }
+    .closing-field input::placeholder { color: #9ba8b5; }
+    .closing-submit { width: 100%; margin-top: 20px; border-radius: 7px; font-size: 14px; }
+    .closing-privacy { margin: 11px 0 0; color: var(--faint); font-size: 9.5px; line-height: 1.7; text-align: center; }
+    .closing-success { padding: 72px 20px; text-align: center; }
+    .closing-success h3 { margin: 0 0 10px; color: var(--navy); font-family: var(--serif); font-size: 24px; }
+    .closing-success p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .footer { background: #051425; color: #9aa7ba; padding: 42px clamp(28px, 5vw, 76px) 46px; }
+    .footer-inner { width: min(1120px, 100%); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+    .footer-logo { height: 36px; width: auto; filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; opacity: .92; }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 20px; font-size: 11.5px; }
+    .footer-copy { width: 100%; margin-top: 6px; font-size: 10.5px; color: #5b6a80; }
+
+    /* ============ モバイル追従CTA ============ */
+    .sticky-cta {
+      position: fixed; z-index: 70; left: 10px; right: 10px; bottom: 10px;
+      display: none; gap: 8px;
+      padding: 6px;
+      background: rgba(255, 255, 255, .95);
+      border: 1px solid var(--line); border-radius: 999px;
+      box-shadow: 0 -6px 40px rgba(7, 28, 54, .22);
+      backdrop-filter: blur(12px);
+    }
+    .sticky-cta .btn { flex: 1; min-height: 44px; font-size: 12.5px; padding: 7px 14px; }
+
+    /* ============ 01〜最終CTA：連続バックグラウンド ============ */
+    .content-gradient {
+      position: relative;
+      background: linear-gradient(
+        180deg,
+        #dcebf6 0%,
+        #f1f6fa 15%,
+        #ffffff 34%,
+        #ffffff 52%,
+        #faf8ff 72%,
+        #eee7fa 100%
+      );
+    }
+    .content-gradient > .section,
+    .content-gradient > .closing,
+    .content-gradient > .footer {
+      background: transparent;
+    }
+
+    /* 最終CTAも明るい流れに統一 */
+    .content-gradient .closing { color: var(--ink); }
+    .content-gradient .closing h2 { color: var(--navy); }
+    .content-gradient .closing .section-no { color: var(--purple); }
+    .content-gradient .closing-copy > p,
+    .content-gradient .closing-meta { color: var(--muted); }
+    .content-gradient .closing-meta span::before { color: var(--purple); }
+    .content-gradient .footer { color: var(--muted); }
+    .content-gradient .footer-logo {
+      filter: none;
+      mix-blend-mode: multiply;
+      opacity: .9;
+    }
+    .content-gradient .footer-copy { color: var(--faint); }
+
+    /* ============ レスポンシブ ============ */
+    @media (max-width: 1240px) {
+      .hero-inner { grid-template-columns: minmax(440px, 1fr) minmax(340px, .75fr); }
+      .hero-person { right: -183px; }
+    }
+    @media (max-width: 1080px) {
+      .site-nav { gap: 16px; }
+      .site-nav a:nth-child(2) { display: none; }
+      .adviser { flex-basis: calc((100% - 18px) / 2); }
+      .jobs-grid { grid-template-columns: 1fr 1fr; }
+      .awards-layout { grid-template-columns: 1fr; gap: 32px; }
+      .awards-intro .section-sub { max-width: 560px; }
+      .closing-inner { grid-template-columns: 1fr; }
+      .closing-copy { padding-top: 0; text-align: center; }
+      .closing-copy > p { margin-inline: auto; }
+      .closing-meta { justify-content: center; }
+      .closing-form { width: min(650px, 100%); margin-inline: auto; }
+    }
+    @media (max-width: 900px) {
+      .site-nav { display: none; }
+      .site-header .btn { margin-left: auto; }
+      .hero { min-height: 600px; align-items: flex-start; }
+      .hero-inner { position: static; display: block; padding-top: 94px; }
+      .hero-copy { max-width: 650px; }
+      .hero-visual { position: absolute; inset: 72px 0 0; min-height: 0; opacity: .32; }
+      .hero-visual::before { right: -100px; bottom: 10px; }
+      .hero-person { right: -275px; bottom: -28px; width: 865px; }
+    }
+    @media (max-width: 720px) {
+      html { scroll-padding-top: 0; }
+      .site-header { position: absolute; height: 60px; padding: 0 12px 0 16px; }
+      .site-header img { height: 25px; }
+      .site-header .btn { min-height: 39px; padding: 7px 14px; font-size: 11.5px; }
+      .hero { min-height: clamp(650px, 100svh, 820px); }
+      .hero-inner { padding: 72px 20px 22px; }
+      .hero-copy { position: relative; display: flex; flex-direction: column; align-items: flex-start; min-height: clamp(540px, calc(100svh - 106px), 690px); }
+      .hero-kicker { margin-bottom: 41px; }
+      .hero-message { position: absolute; top: 44%; left: 0; right: 0; transform: translateY(-50%); }
+      .hero h1 { margin-bottom: 21px; font-size: clamp(32px, 8.7vw, 35px); line-height: 1.46; }
+      .hero-mobile-break { display: inline; }
+      .hero-lead { max-width: 520px; line-height: 2.05; }
+      .hero-awards { width: 100%; margin-top: auto; margin-bottom: 34px; padding: 0; border: 0; border-radius: 0; background: transparent; backdrop-filter: none; }
+      .hero-award-note { margin-top: 10px; }
+      .hero-visual { inset: 0; opacity: .2; }
+      .hero-person { right: clamp(-445px, -52svh, -385px); bottom: 0; width: clamp(880px, 117svh, 990px); }
+      .pains-grid { grid-template-columns: 1fr; }
+      .reasons-layout { grid-template-columns: 1fr; }
+      .reasons-rail { position: static; }
+      .reasons-nav, .reasons-progress { display: none; }
+      .reasons-rail .section-head { text-align: center; }
+      .reasons-rail .section-sub { margin-inline: auto; }
+
+      /* 02 理由セクション：スクロールでカードが重なっていくスタック演出 */
+      .reasons-list { display: flow-root; margin-bottom: -226px; }
+      .reason { box-sizing: border-box; position: sticky; margin-bottom: 24px; }
+      .reason.rev { opacity: 1; transform: none; transition: none; }
+      .reason:nth-of-type(1) { top: 14px; z-index: 1; margin-bottom: 274px; }
+      .reason:nth-of-type(2) { top: 38px; z-index: 2; margin-bottom: 250px; }
+      .reasons-list #reason-3 { top: 62px; z-index: 3; margin-bottom: 226px; }
+      .reasons .inline-cta { position: relative; z-index: 0; }
+
+      /* Before / After は文章量に影響されない縦フロー */
+      .fig-docs { display: grid; grid-template-columns: minmax(0, 1fr); gap: 9px; padding-bottom: 0; }
+      .fig-docs .fig-doc,
+      .fig-docs .fig-doc.good { box-sizing: border-box; width: 100%; margin: 0; transform: none; }
+      .fig-docs .arrow {
+        position: static; justify-self: center; transform: rotate(90deg);
+        width: 26px; height: 26px; display: grid; place-items: center;
+        margin: -2px 0; border-radius: 50%; background: #fff; border: 1px solid var(--line);
+        box-shadow: 0 6px 14px rgba(16, 43, 82, .12); z-index: 3;
+      }
+
+      /* 確認項目は2列にして高さを圧縮 */
+      .fig-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .fig-checks > div { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; padding: 12px 12px; }
+      .fig-checks b { font-size: 12px; text-align: left; }
+
+      /* 条件タグ → 提案カードを安定した縦フローで表示 */
+      .fig-conds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; position: static; margin: 0 0 12px; padding: 0; border: 0; border-radius: 0; background: transparent; transform: none; }
+      .fig-conds span { display: flex; align-items: center; justify-content: center; min-width: 0; padding: 7px 5px; font-size: 10.5px; white-space: nowrap; }
+      .fig-match { position: static; grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 0; z-index: auto; transform: none; box-shadow: 0 12px 24px rgba(16, 43, 82, .12); }
+      .fig-match p { overflow-wrap: anywhere; }
+      .fig-match .ok { flex-direction: row; align-items: baseline; justify-content: flex-start; gap: 6px; padding-top: 9px; border-top: 1px solid rgba(255, 255, 255, .16); text-align: left; }
+      .awards-intro .section-head { text-align: center; }
+      .awards-intro { position: relative; z-index: 1; width: 100%; max-width: 100%; overflow: visible; }
+      .awards-intro .section-head { width: 100%; max-width: 100%; margin-bottom: 0; }
+      .awards-intro .section-no { max-width: 100%; white-space: normal; }
+      .awards-intro .section-title { width: 100%; max-width: 100%; overflow: visible; }
+      .awards-title-small { font-size: 19px; line-height: 1.5; }
+      .awards-title-main { max-width: 100%; margin: 4px 0; font-size: clamp(28px, 8.4vw, 34px); line-height: 1.4; white-space: normal; }
+      .awards-intro .section-sub { box-sizing: border-box; width: 100%; max-width: 340px; margin: 16px auto 0; padding: 0; font-size: 13px; line-height: 1.9; overflow-wrap: anywhere; }
+      .awards-list { display: flex; align-items: stretch; gap: 12px; overflow-x: auto; overflow-y: hidden; margin-inline: -20px; padding: 2px 20px 12px; border-top: 0; scroll-padding-inline: 20px; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .awards-list::-webkit-scrollbar { display: none; }
+      .award-card { box-sizing: border-box; flex: 0 0 calc(100vw - 64px); display: grid; grid-template-columns: 82px minmax(0, 1fr); grid-template-rows: 1fr auto; gap: 10px 14px; width: calc(100vw - 64px); max-width: 340px; min-width: 0; min-height: 228px; padding: 21px 18px; border: 1px solid rgba(16, 43, 82, .14); border-radius: 12px; background: rgba(255, 255, 255, .62); scroll-snap-align: start; scroll-snap-stop: always; }
+      .award-company { grid-column: 1; grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; justify-content: flex-start; width: auto; padding-top: 3px; }
+      .award-company strong { font-size: 17px; }
+      .award-company small { flex-shrink: 0; }
+      .award-copy { grid-column: 2; width: 100%; min-width: 0; }
+      .award-copy .award-label { margin-bottom: 5px; font-size: 8.5px; letter-spacing: .07em; overflow-wrap: anywhere; }
+      .award-copy h3 { font-size: 16px; line-height: 1.55; }
+      .award-copy p { margin-top: 6px; font-size: 10.5px; line-height: 1.75; overflow-wrap: anywhere; }
+      .award-result { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: flex-start; width: 100%; margin-top: 0; min-width: 0; }
+      .award-result span { padding: 4px 7px; font-size: 8.5px; }
+      .awards-note { margin-top: 8px; text-align: left; }
+      .jobs-grid { grid-template-columns: 1fr; }
+      .advisers-grid { max-width: none; margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px; }
+      .adviser { flex-basis: min(82vw, 360px); }
+      .phases-grid { display: block; border-bottom: 0; }
+      .phase { padding: 25px 8px 25px 48px; border-right: 0; border-bottom: 1px solid rgba(16,43,82,.14); background: transparent; }
+      .phase::before { top: 27px; left: 7px; right: auto; font-size: 14px; }
+      .phase small { margin-bottom: 9px; }
+      .phase h3 { margin-bottom: 9px; padding-right: 0; font-size: 18px; }
+      .phase p { margin-bottom: 14px; }
+      .phase ul { padding-top: 13px; }
+      .flow-grid { display: block; padding: 0 0 0 28px; }
+      .flow-grid::before,
+      .flow-grid::after { left: 6px; right: auto; top: 8px; bottom: 8px; width: 2px; height: auto; }
+      .flow-grid::after { transform: scaleY(0); transform-origin: center top; }
+      .flow-grid.is-visible::after { transform: scaleY(1); }
+      .flow-step { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; column-gap: 8px; align-items: baseline; padding: 0 0 18px 0; text-align: left; }
+      .flow-step:last-child { padding-bottom: 0; }
+      .flow-step::before { top: 5px; left: -22px; width: 10px; height: 10px; transform: translateX(-50%); }
+      .flow-grid.is-visible .flow-step::before { transform: translateX(-50%) scale(1.08); }
+      .flow-step .n { grid-column: 1; margin: 0; font-size: 14px; }
+      .flow-step h3 { grid-column: 2; margin: 0; font-size: 14px; }
+      .flow-step small { grid-column: 3; margin: 0; white-space: nowrap; font-size: 9px; }
+      .flow-step p { grid-column: 2 / -1; margin-top: 4px; font-size: 10.5px; line-height: 1.65; }
+      .inline-cta { flex-direction: column; gap: 12px; margin-top: 28px; text-align: center; }
+      .inline-cta .btn { width: 100%; min-width: 0; }
+      .cases-head-row { flex-direction: column; align-items: stretch; }
+      .cases-arrows { display: none; }
+      .cases-scroller { margin-inline: -20px; padding-inline: 20px; }
+      .section { padding: 62px 20px; }
+      .awards { padding-block: 50px 42px; }
+      .jobs { padding-block: 42px 54px; }
+      .reasons { padding-top: 50px; }
+      .closing { padding: 68px 20px 62px; }
+      .closing-inner { gap: 30px; }
+      .closing-form { padding: 26px 20px 24px; }
+      .closing-fields { grid-template-columns: 1fr; }
+      .closing-field--wide { grid-column: auto; }
+      .footer { padding-bottom: 110px; }
+      .sticky-cta { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .pains-answer h3 .mark { font-size: 23px; }
+      .adviser-visual { height: 218px; }
+      .adviser-quote { left: 18px; top: 18px; width: 64%; padding-left: 10px; font-size: 11.5px; line-height: 1.68; }
+      .adviser-name { left: 18px; bottom: 18px; }
+      .adviser-name h3 { font-size: 21px; }
+      .adviser-content { padding: 17px 19px 20px; }
+    }
+    @media (max-width: 340px) {
+      .pains-answer h3 .accent { white-space: normal; }
+      .pains-answer h3 .mark { font-size: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .rev { opacity: 1; transform: none; }
+      .mark { background-size: 100% .22em; }
+    }
+  </style>
+</head>
+<body>
+<!-- 追従ヘッダー -->
+<header class="site-header">
+  <img src="assets/images/givecreation-logo.jpg" alt="GIVE CREATION">
+  <nav class="site-nav" aria-label="主要メニュー">
+    <a href="#reasons">選ばれる理由</a>
+    <a href="#jobs">求人例</a>
+    <a href="#cases">転職事例</a>
+    <a href="#advisers">アドバイザー</a>
+  </nav>
+  <a class="btn btn-primary" href="#entry">無料で相談</a>
+</header>
+
+<div class="page">
+  <!-- FV -->
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-kicker rev">メーカー特化型の転職エージェント</p>
+        <div class="hero-message">
+          <h1 class="rev rev-d1">その経験、<br><em><span class="mark">もっと評価される</span></em><br class="hero-mobile-break">会社がある。</h1>
+          <p class="hero-lead rev rev-d2">これまで培った経験やスキルを丁寧にひもとき、あなた自身もまだ知らないキャリアの可能性をご提案します。</p>
+        </div>
+        <div class="hero-awards rev rev-d2">
+          <div class="hero-award-grid">
+            <div class="hero-award"><img src="assets/images/award01.svg" alt="業界口コミNo.1"></div>
+            <div class="hero-award"><img src="assets/images/award02.svg" alt="合格内定率No.1"></div>
+            <div class="hero-award"><img src="assets/images/award03.svg" alt="短期離職率1%以内"></div>
+            <div class="hero-award"><img src="assets/images/award04.svg" alt="転職成功者の89%が年収アップ"></div>
+          </div>
+          <p class="hero-award-note">※Googleビジネスプロフィールの口コミ評価4.9・600件以上（2026年7月時点）。年収UP率は転職成功者、短期離職率は入社者を対象とした当社集計。バッジ文言は公開前に正式な実績内容へ差し替えてください。</p>
+        </div>
+      </div>
+      <div class="hero-visual rev rev-d1" aria-hidden="true">
+        <img class="hero-person" src="assets/images/top-fv.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ロゴスライダー -->
+  <div class="logo-marquee" aria-label="取引企業ロゴ">
+    <div class="logo-marquee-row"><div class="logo-marquee-track logo-marquee-track--ltr" id="logoRow1"></div></div>
+    <div class="logo-marquee-row"><div class="logo-marquee-track logo-marquee-track--rtl" id="logoRow2"></div></div>
+  </div>
+
+  <div class="content-gradient">
+  <!-- 01 お悩み -->
+  <section class="section pains" id="pains">
+    <div class="section-inner">
+      <div class="section-head rev">
+        <span class="section-no en">01 / Your concerns</span>
+        <h2 class="section-title">その悩み、<span class="accent"><span class="mark">あきらめる理由</span></span>に<br>していませんか？</h2>
+      </div>
+      <div class="pains-grid">
+        <div class="pain rev"><small>28歳・機械設計</small><p>改良設計ばかりで、ゼロから設計する経験を積めない。このままで市場価値は上がるのだろうか。</p></div>
+        <div class="pain rev rev-d1"><small>31歳・生産技術</small><p>設備導入や工程改善で成果を出しても、評価は変わらない。今の年収は、経験に見合っているのだろうか。</p></div>
+        <div class="pain rev rev-d2"><small>34歳・社内SE</small><p>問い合わせと運用保守で毎日が終わる。企画やDXへ進みたいのに、上流の経験を積む機会がない。</p></div>
+        <div class="pain rev rev-d3"><small>33歳・品質保証</small><p>品質対応に追われる働き方を変えたい。でも求人票だけでは、組織体制や本当の残業時間まで見えない。</p></div>
+      </div>
+      <div class="pains-answer rev">
+        <h3>ギブクリエーションなら、<br><span class="accent"><span class="mark">専門性を、次のキャリアへ。</span></span></h3>
+        <p>製造業を知るアドバイザーが、担当製品や技術要素、改善実績を企業に伝わる強みへ整理。採用背景や職場の実情まで確かめたうえで、あなたの専門性が活きる一社をご提案します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 選ばれる理由 -->
+  <section class="section reasons" id="reasons">
+    <div class="section-inner">
+      <div class="reasons-layout">
+        <div class="reasons-rail">
+          <div class="section-head">
+            <span class="section-no en">02 / Why GIVE CREATION</span>
+            <h2 class="section-title"><span class="title-line">製造業の転職を、</span><span class="accent title-line">もっと解像度高く。</span></h2>
+            <p class="section-sub">製造業を知る担当者が、専門性の言語化、採用背景や組織の実情、企業別の選考対策まで。求人の量ではなく、納得できる一社に出会うための提案を行います。</p>
+          </div>
+          <nav class="reasons-nav" aria-label="理由の一覧">
+            <a href="#reason-1" data-spy="reason-1"><span class="n">01</span>経験を、伝わる言葉に変える</a>
+            <a href="#reason-2" data-spy="reason-2"><span class="n">02</span>働き方の実態まで確認する</a>
+            <a href="#reason-3" data-spy="reason-3"><span class="n">03</span>譲れない条件から逆算する</a>
+          </nav>
+          <div class="reasons-progress"><i id="reasonsBar"></i></div>
+        </div>
+        <div class="reasons-list">
+          <article class="reason rev" id="reason-1">
+            <span class="reason-ghost" aria-hidden="true">01</span>
+            <h3>あなたには当たり前の仕事が、<br><span class="accent">他社には価値</span>になる。</h3>
+            <p>機械設計を7年、生産技術を5年、で終わらせません。担当製品や技術要素、改善実績まで棚卸しして、採用担当に専門性が伝わる職務経歴書へ一緒に仕上げます。</p>
+            <div class="fig">
+              <span class="fig-label">職務経歴書の変わり方（例）</span>
+              <div class="fig-docs">
+                <div class="fig-doc"><small>よくある書き方</small><p>産業機械の機械設計として、既存製品の改良設計を担当。</p></div>
+                <span class="arrow">›</span>
+                <div class="fig-doc good"><small>GIVE CREATIONと直した後</small><p><span class="kw">3D CAD</span>を用いた駆動部設計を担当。部品共通化により原価を<span class="kw">12%削減</span>し、量産立ち上げまで推進。</p></div>
+              </div>
+            </div>
+          </article>
+          <article class="reason rev" id="reason-2">
+            <span class="reason-ghost" aria-hidden="true">02</span>
+            <h3>求人票では分からないことを、<br><span class="accent">企業に直接聞いて</span>から提案する。</h3>
+            <p>残業の実測値、中途入社者の昇進事例、チームの雰囲気や退職理由まで。入社後のギャップを防ぐために、確認してからご案内します。</p>
+            <div class="fig">
+              <span class="fig-label">ご提案前に確認していること（例）</span>
+              <div class="fig-checks">
+                <div><span class="c">✓</span>残業時間の実測値<b>月平均 18h（部署単位）</b></div>
+                <div><span class="c">✓</span>中途入社者の昇進事例<b>入社3年でマネージャー2名</b></div>
+                <div><span class="c">✓</span>評価制度の運用実態<b>半期ごと・基準を開示</b></div>
+                <div><span class="c">✓</span>直近1年の中途定着率<b>94%</b></div>
+              </div>
+            </div>
+          </article>
+          <article class="reason rev" id="reason-3">
+            <span class="reason-ghost" aria-hidden="true">03</span>
+            <h3>譲れない条件を先に決めて、<br><span class="accent">合う求人だけ</span>をご提案。</h3>
+            <p>年収、休日、残業、勤務地、仕事内容。最初に譲れない条件を整理し、合わない求人で妥協を迫ることはありません。無理な応募も勧めません。</p>
+            <div class="fig">
+              <span class="fig-label">条件の整理 → 提案のイメージ</span>
+              <div class="fig-conds"><span>年収 500万円〜</span><span>土日休み</span><span>残業 月20h以内</span><span>リモート週2〜</span></div>
+              <div class="fig-match">
+                <div>
+                  <small class="en">Proposal</small>
+                  <p>ITサービス企業／事業企画<br>年収 520〜600万円・フルフレックス</p>
+                </div>
+                <span class="ok"><span class="num">4/4</span><span>条件一致</span></span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="inline-cta rev">
+        <p>転職を決める前でも大丈夫です。<br>まずは、経験から選べる可能性を確認しませんか。</p>
+        <a class="btn btn-primary" href="#entry">無料でキャリア相談する ›</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 受賞実績 -->
+  <section class="section awards" id="awards">
+    <div class="section-inner awards-layout">
+      <div class="awards-intro rev">
+        <div class="section-head">
+          <span class="section-no en">03 / Awards &amp; Recognition</span>
+          <h2 class="section-title"><span class="awards-title-small">メーカー企業から、</span><span class="awards-title-main">支援品質を評価</span><span class="awards-title-small">されています。</span></h2>
+          <p class="section-sub">マッチング精度や選考成果を評価され、メーカー各社のエージェントアワードを受賞しています。</p>
+        </div>
+      </div>
+      <div class="awards-panel">
+        <div class="awards-list">
+          <article class="award-card rev">
+            <div class="award-company"><strong>IHI</strong><small>2025</small></div>
+            <div class="award-copy">
+              <p class="award-label en">IHI AGENT AWARD 2024</p>
+              <h3>優秀パートナー賞</h3>
+              <p>経歴や志向を踏まえたマッチング精度と、選考成果が評価されました。</p>
+            </div>
+            <div class="award-result"><span>書類選考通過率 第1位</span><span>内定決定数 第2位</span></div>
+          </article>
+          <article class="award-card rev rev-d1">
+            <div class="award-company"><strong>HITACHI</strong><small>2025</small></div>
+            <div class="award-copy">
+              <p class="award-label en">HITACHI AGENT AWARD</p>
+              <h3>TOP10 AGENT 応募決定率 第1位</h3>
+              <p>求人要件とキャリア志向を結びつける、精度の高い提案力が評価されました。</p>
+            </div>
+            <div class="award-result"><span>2年連続受賞</span></div>
+          </article>
+          <article class="award-card rev rev-d2">
+            <div class="award-company"><strong>OMRON</strong><small>2024</small></div>
+            <div class="award-copy">
+              <p class="award-label en">EXCELLENT PARTNER AWARD</p>
+              <h3>優秀パートナー賞</h3>
+              <p>キャリア採用への貢献と、応募者の高い選考通過率が評価されました。</p>
+            </div>
+            <div class="award-result"><span>2年連続受賞</span></div>
+          </article>
+        </div>
+        <p class="awards-note rev">※各社が主催するキャリア採用領域のエージェントアワードにおける受賞実績です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 求人例 -->
+  <section class="section jobs" id="jobs">
+    <div class="section-inner">
+      <div class="section-head rev">
+        <span class="section-no en">04 / Job examples</span>
+        <h2 class="section-title">あなたの経験が活きる、<br><span class="accent">求人の一例</span></h2>
+        <p class="section-sub">職種を選ぶと求人例が切り替わります。非公開求人を含め、条件に合わせて個別にご案内します。</p>
+      </div>
+      <div class="jobs-tabs" role="tablist" aria-label="職種で求人例を切り替え">
+        <button class="is-active" data-tab="sales">機械・生産技術</button>
+        <button data-tab="plan">電気電子・制御</button>
+        <button data-tab="admin">品質・生産管理</button>
+        <button data-tab="it">社内SE・DX</button>
+      </div>
+      <div class="jobs-grid" id="jobsGrid"></div>
+      <p class="u-note">※求人内容は一例です。募集状況やご経験によりご紹介可能な求人は異なります。</p>
+    </div>
+  </section>
+
+  <!-- 05 事例 -->
+  <section class="section cases" id="cases">
+    <div class="cases-head-row">
+      <div class="section-head rev">
+        <span class="section-no en">05 / Success stories</span>
+        <h2 class="section-title">変わったのは、<br><span class="accent"><span class="mark">年収だけじゃない</span></span>。</h2>
+        <p class="section-sub" style="margin-left:0;">年収・働き方・仕事内容。何をどう変えたか、実際の事例でご覧ください。</p>
+      </div>
+      <div class="cases-arrows rev">
+        <button id="casePrev" aria-label="前の事例へ">‹</button>
+        <button id="caseNext" aria-label="次の事例へ">›</button>
+      </div>
+    </div>
+    <div class="section-inner">
+      <div class="cases-scroller" id="caseScroller" aria-label="転職事例の一覧（横にスクロールできます）">
+        <article class="case">
+          <div class="case-head"><i>機</i><p>28歳・機械設計（産業機械）<small>→ EV部品メーカーへ</small></p></div>
+          <div class="case-flow">
+            <div><small class="en">Before</small><b>産業機械<br>改良設計</b></div><span class="arrow">›</span>
+            <div class="to"><small class="en">After</small><b>EV部品<br>先行開発</b></div>
+          </div>
+          <div class="case-nums">
+            <div><small>年収</small><b><span class="num">420→490</span>万円</b></div>
+            <div><small>領域</small><b>新規開発へ</b></div>
+          </div>
+          <blockquote><span class="stars">★★★★★</span>「改良設計の経験を、量産性まで考えられる強みとして評価してもらえました。念願だった新規開発に挑戦できています。」</blockquote>
+        </article>
+        <article class="case">
+          <div class="case-head"><i>生</i><p>31歳・生産技術（自動車部品）<small>→ 完成車メーカーへ</small></p></div>
+          <div class="case-flow">
+            <div><small class="en">Before</small><b>既存ライン<br>工程改善</b></div><span class="arrow">›</span>
+            <div class="to"><small class="en">After</small><b>次世代ライン<br>設備企画</b></div>
+          </div>
+          <div class="case-nums">
+            <div><small>年収</small><b><span class="num">480→560</span>万円</b></div>
+            <div><small>働き方</small><b>フレックス</b></div>
+          </div>
+          <blockquote><span class="stars">★★★★★</span>「設備導入と改善の実績を具体化したことで、より上流の設備企画へ進めました。」</blockquote>
+        </article>
+        <article class="case">
+          <div class="case-head"><i>電</i><p>29歳・電気設計（装置メーカー）<small>→ 半導体製造装置メーカーへ</small></p></div>
+          <div class="case-flow">
+            <div><small class="en">Before</small><b>配電盤<br>電気設計</b></div><span class="arrow">›</span>
+            <div class="to"><small class="en">After</small><b>装置制御<br>回路設計</b></div>
+          </div>
+          <div class="case-nums">
+            <div><small>年収</small><b><span class="num">430→510</span>万円</b></div>
+            <div><small>領域</small><b>制御設計へ</b></div>
+          </div>
+          <blockquote><span class="stars">★★★★★</span>「回路設計だけでなく、立ち上げ時の調整経験まで評価され、技術領域を広げられました。」</blockquote>
+        </article>
+        <article class="case">
+          <div class="case-head"><i>品</i><p>33歳・品質保証（電子部品）<small>→ 医療機器メーカーへ</small></p></div>
+          <div class="case-flow">
+            <div><small class="en">Before</small><b>顧客対応<br>品質保証</b></div><span class="arrow">›</span>
+            <div class="to"><small class="en">After</small><b>医療機器<br>QMS推進</b></div>
+          </div>
+          <div class="case-nums">
+            <div><small>年収</small><b><span class="num">500→590</span>万円</b></div>
+            <div><small>役割</small><b>QMS推進</b></div>
+          </div>
+          <blockquote><span class="stars">★★★★★</span>「監査対応や再発防止の経験を活かし、品質の仕組みづくりに携われるようになりました。」</blockquote>
+        </article>
+        <article class="case">
+          <div class="case-head"><i>調</i><p>30歳・調達（機械部品）<small>→ 大手重工メーカーへ</small></p></div>
+          <div class="case-flow">
+            <div><small class="en">Before</small><b>国内調達<br>納期管理</b></div><span class="arrow">›</span>
+            <div class="to"><small class="en">After</small><b>グローバル<br>戦略調達</b></div>
+          </div>
+          <div class="case-nums">
+            <div><small>年収</small><b><span class="num">470→550</span>万円</b></div>
+            <div><small>担当</small><b>海外調達へ</b></div>
+          </div>
+          <blockquote><span class="stars">★★★★★</span>「価格交渉だけでなく、供給リスクを抑えた実績が評価され、より大きな調達戦略を任されています。」</blockquote>
+        </article>
+        <article class="case">
+          <div class="case-head"><i>IT</i><p>34歳・SE（SIer）<small>→ メーカー社内SEへ</small></p></div>
+          <div class="case-flow">
+            <div><small class="en">Before</small><b>受託開発<br>SE</b></div><span class="arrow">›</span>
+            <div class="to"><small class="en">After</small><b>製造業<br>社内SE</b></div>
+          </div>
+          <div class="case-nums">
+            <div><small>年収</small><b><span class="num">480→530</span>万円</b></div>
+            <div><small>勤務</small><b>リモート週3</b></div>
+          </div>
+          <blockquote><span class="stars">★★★★★</span>「働き方を変えるなら年収は下がると思い込んでいました。両方かなえる求人を条件から逆算してくれました。」</blockquote>
+        </article>
+      </div>
+      <div class="inline-cta rev">
+        <p>似た経験から、どんな転職ができるのか。<br>あなたの場合の選択肢を個別にご案内します。</p>
+        <a class="btn btn-primary" href="#entry">自分の転職可能性を相談する ›</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 使い方 -->
+  <section class="section phases">
+    <div class="section-inner">
+      <div class="section-head rev">
+        <span class="section-no en">06 / How to use</span>
+        <h2 class="section-title">転職を決める前から、<br>一緒に考えられます。</h2>
+        <p class="section-sub">今の温度感に合わせて使い方を選べます。相談したからといって、転職を勧め続けることはありません。</p>
+      </div>
+      <div class="phases-grid">
+        <div class="phase rev">
+          <small>すぐ動きたい方</small>
+          <h3>3ヶ月以内に転職したい</h3>
+          <p>条件整理から書類・面接対策、年収交渉まで最短ルートで伴走します。</p>
+          <ul><li>初回面談で条件と優先順位を整理</li><li>書類は添削ではなく一緒に作る</li><li>企業ごとの面接対策・年収交渉</li></ul>
+        </div>
+        <div class="phase rev rev-d1">
+          <small>迷っている方</small>
+          <h3>転職すべきか迷っている</h3>
+          <p>今の会社に残る選択肢も含めて、キャリアの棚卸しからお手伝いします。</p>
+          <ul><li>経験の棚卸しと市場価値の確認</li><li>残る判断になってもOK</li><li>急かす連絡はしません</li></ul>
+        </div>
+        <div class="phase rev rev-d2">
+          <small>まだ先の方</small>
+          <h3>まずは情報収集だけしたい</h3>
+          <p>いま動いたら何が選べるのか。相場観と選択肢だけ知って帰れます。</p>
+          <ul><li>あなたの経験で狙える求人の相場</li><li>年収・働き方の可能性を数字で</li><li>登録後の連絡頻度は選べます</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 アドバイザー -->
+  <section class="section advisers" id="advisers">
+    <div class="section-inner">
+      <div class="advisers-layout">
+        <div class="advisers-rail">
+          <div class="section-head rev">
+            <span class="section-no en">07 / Advisers</span>
+            <h2 class="section-title">メーカー転職を知る、<br><span class="accent">専門コンサルタント。</span></h2>
+            <p class="section-sub">メーカーの現場、技術、採用を知る担当者が、企業選びから書類・面接対策まで一貫して支援します。</p>
+          </div>
+        </div>
+        <div class="advisers-grid">
+          <article class="adviser rev">
+            <div class="adviser-visual">
+              <img src="assets/images/advisers/somekawa.jpg" alt="キャリアコンサルタント 染川健太郎" loading="lazy">
+              <p class="adviser-quote">転職ありきではなく、<br>現職に残る選択も含めて<br>最善を考えます。</p>
+              <div class="adviser-name"><h3>染川 健太郎<span>KENTARO SOMEKAWA</span></h3></div>
+            </div>
+            <div class="adviser-body">
+              <div class="adviser-content">
+                <p class="adviser-specialty">大手・優良メーカーの技術職</p>
+                <div class="adviser-tags"><span>電気・電子</span><span>機械・自動車</span><span>管理職</span></div>
+                <p class="bio">メーカーの技術系ポジションを中心に支援。機械工学の知識と営業・採用経験を活かし、企業側の採用意図と求職者の本音をつなぎます。</p>
+              </div>
+            </div>
+          </article>
+          <article class="adviser rev rev-d1">
+            <div class="adviser-visual">
+              <img src="assets/images/advisers/makino.jpg" alt="キャリアコンサルタント 牧野寛太" loading="lazy">
+              <p class="adviser-quote">転職をゴールにせず、<br>その先のキャリアが好転する<br>選択を支援します。</p>
+              <div class="adviser-name"><h3>牧野 寛太<span>KANTA MAKINO</span></h3></div>
+            </div>
+            <div class="adviser-body">
+              <div class="adviser-content">
+                <p class="adviser-specialty">メーカー・IT領域の技術職</p>
+                <div class="adviser-tags"><span>電気</span><span>機械・組込み</span><span>化学・素材</span></div>
+                <p class="bio">電気・機械・組込みから、化学・素材・食品まで幅広い技術職を担当。プロサッカー選手・選手会長として培った行動力と責任感で伴走します。</p>
+              </div>
+            </div>
+          </article>
+          <article class="adviser rev rev-d2">
+            <div class="adviser-visual">
+              <img src="assets/images/advisers/kumazawa.jpg" alt="キャリアコンサルタント 熊澤武始" loading="lazy">
+              <p class="adviser-quote">企業との<br>マッチ度にこだわり、<br>後悔しないキャリア選択を<br>支えます。</p>
+              <div class="adviser-name"><h3>熊澤 武始<span>TAKESHI KUMAZAWA</span></h3></div>
+            </div>
+            <div class="adviser-body">
+              <div class="adviser-content">
+                <p class="adviser-specialty">大手メーカー・生産技術領域</p>
+                <div class="adviser-tags"><span>生産技術</span><span>設備開発</span><span>機械・電気</span></div>
+                <p class="bio">大手メーカーの生産部門で、製造設備の開発・管理とプロジェクトリードを経験。現場を知る元エンジニアならではの視点で提案します。</p>
+              </div>
+            </div>
+          </article>
+          <article class="adviser rev">
+            <div class="adviser-visual">
+              <img src="assets/images/advisers/suzuki-yuya.jpg" alt="キャリアコンサルタント 鈴木侑弥" loading="lazy">
+              <p class="adviser-quote">求人票だけでは<br>分からない情報まで届け、<br>専門性が活きる<br>環境を一緒に探します。</p>
+              <div class="adviser-name"><h3>鈴木 侑弥<span>YUYA SUZUKI</span></h3></div>
+            </div>
+            <div class="adviser-body">
+              <div class="adviser-content">
+                <p class="adviser-specialty">機械設計・生産技術・医療機器</p>
+                <div class="adviser-tags"><span>機械設計</span><span>生産技術</span><span>研究開発</span></div>
+                <p class="bio">医療機器メーカーで設計・組立・評価など製品開発を経験。技術職の複雑な経歴を要素分解し、書類や面接で伝わる強みへ整理します。</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="advisers-controls" aria-label="コンサルタント一覧の操作">
+          <div class="advisers-dots" id="advisersDots"></div>
+          <div class="advisers-arrows">
+            <button type="button" id="advisersPrev" aria-label="前のコンサルタント">←</button>
+            <button type="button" id="advisersNext" aria-label="次のコンサルタント">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 流れ -->
+  <section class="section flow" id="flow">
+    <div class="section-inner">
+      <div class="section-head rev">
+        <span class="section-no en">08 / Simple steps</span>
+        <h2 class="section-title">働きながらでも進められる、<br><span class="accent">5つのステップ</span></h2>
+        <p class="section-sub">登録から内定まで、すべて無料。書類作成や企業との日程調整も担当者が代行します。</p>
+      </div>
+      <div class="flow-grid rev">
+        <div class="flow-step rev"><span class="n">01</span><h3>無料登録</h3><p>フォーム入力は約60秒。今すぐ転職しなくても大丈夫です。</p><small>所要 約60秒</small></div>
+        <div class="flow-step rev rev-d1"><span class="n">02</span><h3>キャリア面談</h3><p>平日夜・土曜、オンラインもOK。譲れない条件を一緒に整理します。</p><small>約60分・オンライン可</small></div>
+        <div class="flow-step rev rev-d2"><span class="n">03</span><h3>求人のご提案</h3><p>働き方の実態を確認した求人だけを、理由つきでご案内します。</p><small>条件に合う求人のみ</small></div>
+        <div class="flow-step rev rev-d3"><span class="n">04</span><h3>書類・面接対策</h3><p>職務経歴書は一緒に作成。企業ごとに面接の想定問答を準備します。</p><small>日程調整も代行</small></div>
+        <div class="flow-step rev rev-d3"><span class="n">05</span><h3>内定・入社</h3><p>年収交渉、退職の進め方、入社後のフォローまで支援します。</p><small>年収交渉も担当</small></div>
+      </div>
+      <div class="inline-cta rev">
+        <p>登録後は、担当者が日程調整から選考対策まで伴走します。</p>
+        <a class="btn btn-primary" href="#entry">無料相談を申し込む ›</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 FAQ -->
+  <section class="section faq" id="faq">
+    <div class="section-inner">
+      <div class="section-head rev">
+        <span class="section-no en">09 / FAQ</span>
+        <h2 class="section-title">相談の前に、<br>よくいただく質問</h2>
+      </div>
+      <div class="faq-list rev">
+        <details>
+          <summary><span class="q">Q</span>本当に無料ですか？あとから費用を請求されませんか？<span class="plus">＋</span></summary>
+          <div class="a"><span class="mark-a">A</span><p>完全無料です。採用企業から紹介料をいただく仕組みのため、求職者の方に費用が発生することは一切ありません。</p></div>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>どのような職種・経験が相談対象ですか？<span class="plus">＋</span></summary>
+          <div class="a"><span class="mark-a">A</span><p>機械・電気電子・生産技術・品質・生産管理・調達・社内SEなど、メーカーの技術職と専門職を中心にご相談いただけます。</p></div>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>初回面談までに準備するものはありますか？<span class="plus">＋</span></summary>
+          <div class="a"><span class="mark-a">A</span><p>職務経歴書が完成していなくても問題ありません。これまで担当した製品・工程・技術や、今後変えたい条件を分かる範囲でお聞かせください。</p></div>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>経験が浅くても、未経験の職種に挑戦できますか？<span class="plus">＋</span></summary>
+          <div class="a"><span class="mark-a">A</span><p>可能です。評価・解析から設計へ、受託SEからメーカー社内SEへなど、近い経験を活かしたキャリアチェンジも支援しています。</p></div>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>しつこく電話がかかってきませんか？<span class="plus">＋</span></summary>
+          <div class="a"><span class="mark-a">A</span><p>ご希望の連絡手段と時間帯を最初に伺い、それ以外の連絡はしません。今回は見送るとお伝えいただければ、ご案内も止めます。</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 クロージング -->
+  <section class="closing" id="entry">
+    <div class="closing-inner">
+      <div class="closing-copy">
+        <span class="section-no en rev">10 / Start your next career</span>
+        <h2 class="rev">迷ったまま、<br>また1年が過ぎる前に。</h2>
+        <p class="rev">転職を決めていなくても構いません。いまの経験で選べる求人と、年収・働き方の可能性を、一度いっしょに整理しませんか。</p>
+        <p class="closing-meta rev"><span>完全無料</span><span>平日夜・土曜OK</span><span>オンライン面談対応</span></p>
+      </div>
+      <form class="closing-form rev" id="closingForm">
+        <div class="closing-form-head">
+          <small class="en">FREE CAREER CONSULTATION</small>
+          <h3>無料キャリア相談のお申し込み</h3>
+          <p>必要事項をご入力ください。担当者よりご連絡します。</p>
+        </div>
+        <div class="closing-fields">
+          <label class="closing-field">
+            <span>お名前 <em>必須</em></span>
+            <input type="text" name="name" autocomplete="name" placeholder="山田 太郎" required>
+          </label>
+          <label class="closing-field">
+            <span>年齢 <em>必須</em></span>
+            <select name="age" required><option value="">選択してください</option><option>〜24歳</option><option>25〜29歳</option><option>30〜34歳</option><option>35〜39歳</option><option>40歳〜</option></select>
+          </label>
+          <label class="closing-field">
+            <span>電話番号 <em>必須</em></span>
+            <input type="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="090-0000-0000" required>
+          </label>
+          <label class="closing-field">
+            <span>メールアドレス <em>必須</em></span>
+            <input type="email" name="email" autocomplete="email" inputmode="email" placeholder="example@email.com" required>
+          </label>
+          <label class="closing-field closing-field--wide">
+            <span>現在の職種 <em>必須</em></span>
+            <select name="role" required><option value="">選択してください</option><option>機械・生産技術</option><option>電気電子・制御</option><option>品質・生産管理</option><option>社内SE・IT</option><option>調達・管理部門</option><option>その他</option></select>
+          </label>
+          <label class="closing-field closing-field--wide">
+            <span>転職希望時期 <em>必須</em></span>
+            <select name="timing" required><option value="">選択してください</option><option>3ヶ月以内</option><option>半年以内</option><option>良い求人があれば</option><option>まずは情報収集</option></select>
+          </label>
+        </div>
+        <button class="btn btn-primary closing-submit" type="submit">無料でキャリア相談を申し込む ›</button>
+        <p class="closing-privacy">送信によりプライバシーポリシーに同意したものとみなします。</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <img class="footer-logo" src="assets/images/givecreation-logo.jpg" alt="GIVE CREATION">
+      <nav class="footer-nav" aria-label="フッターメニュー">
+        <a href="#pains">運営会社（ギブクリエーション）</a>
+        <a href="#pains">プライバシーポリシー</a>
+        <a href="#pains">利用規約</a>
+      </nav>
+      <p class="footer-copy">© GIVE CREATION Inc. All rights reserved.</p>
+    </div>
+  </footer>
+  </div>
+</div>
+
+<!-- モバイル追従CTA -->
+<div class="sticky-cta">
+  <a class="btn btn-primary" href="#entry">無料でキャリア相談する</a>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ============ 出現アニメーション ============ */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("is-visible");
+      io.unobserve(en.target);
+    });
+  }, { threshold: .2, rootMargin: "0px 0px -5% 0px" });
+  document.querySelectorAll(".rev, .mark").forEach(function (el) { io.observe(el); });
+  /* FVはロード直後に必ず表示 */
+  document.querySelectorAll(".hero .rev, .hero .mark").forEach(function (el) { el.classList.add("is-visible"); });
+
+  /* ============ ロゴスライダー（assets/images/logo/） ============ */
+  function logoGroup(from, to) {
+    var html = '<div class="logo-marquee-group">';
+    for (var i = from; i <= to; i++) {
+      var n = (i < 10 ? "0" : "") + i;
+      html += '<div class="logo-marquee-item' + (n === "04" ? " logo-marquee-item--shrink" : "") + '">'
+        + '<img src="assets/images/logo/logo_slider' + n + '.webp" alt="取引企業ロゴ" loading="lazy"></div>';
+    }
+    return html + "</div>";
+  }
+  var row1 = document.getElementById("logoRow1");
+  var row2 = document.getElementById("logoRow2");
+  if (row1 && row2) {
+    row1.innerHTML = logoGroup(1, 16) + logoGroup(1, 16);
+    row2.innerHTML = logoGroup(17, 32) + logoGroup(17, 32);
+  }
+
+  /* ============ スマホ：理由カード3枚の高さを統一 ============ */
+  var reason1 = document.getElementById("reason-1");
+  var reason2 = document.getElementById("reason-2");
+  var reason3 = document.getElementById("reason-3");
+  function syncReasonCardHeight() {
+    var reasonCards = [reason1, reason2, reason3];
+    if (reasonCards.some(function (card) { return !card; })) return;
+    reasonCards.forEach(function (card) { card.style.minHeight = ""; });
+    if (innerWidth <= 720) {
+      var maxHeight = Math.max.apply(null, reasonCards.map(function (card) {
+        return Math.ceil(card.getBoundingClientRect().height);
+      }));
+      reasonCards.forEach(function (card) { card.style.minHeight = maxHeight + "px"; });
+    }
+  }
+  syncReasonCardHeight();
+  addEventListener("resize", syncReasonCardHeight, { passive: true });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncReasonCardHeight);
+  }
+
+  /* ============ 理由セクション：現在地＋進捗 ============ */
+  var spyLinks = document.querySelectorAll("[data-spy]");
+  if (spyLinks.length) {
+    var spyIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          spyLinks.forEach(function (a) { a.classList.toggle("is-current", a.dataset.spy === en.target.id); });
+        }
+      });
+    }, { rootMargin: "-38% 0px -52% 0px" });
+    document.querySelectorAll(".reason").forEach(function (el) { spyIo.observe(el); });
+    var bar = document.getElementById("reasonsBar");
+    var list = document.querySelector(".reasons-list");
+    addEventListener("scroll", function () {
+      if (!bar || !list) return;
+      var r = list.getBoundingClientRect();
+      var total = r.height - innerHeight * .5;
+      var done = Math.min(Math.max(-r.top + innerHeight * .5, 0), total);
+      bar.style.width = (done / total * 100).toFixed(1) + "%";
+    }, { passive: true });
+  }
+
+  /* ============ 求人タブ ============ */
+  var JOBS = {
+    sales: [
+      { cat: "完成車メーカー", role: "車体・機構部品の機械設計", pay: "520–720", tags: ["CATIA", "フレックス", "先行開発"], note: "量産設計や顧客折衝の経験を活かし、次世代車両の先行開発へ。" },
+      { cat: "産業機械メーカー", role: "生産技術・設備企画", pay: "480–680", tags: ["設備導入", "工程改善", "海外拠点あり"], note: "工程改善から設備構想・新ライン立ち上げへ、業務の上流を目指せます。" },
+      { cat: "精密機器メーカー", role: "解析・評価エンジニア", pay: "450–630", tags: ["CAE", "年休125日", "転勤なし"], note: "実験評価と解析の両面から、製品性能の向上に携わるポジションです。" }
+    ],
+    plan: [
+      { cat: "半導体製造装置", role: "電気回路・制御設計", pay: "500–700", tags: ["PLC", "回路設計", "技術研修"], note: "装置の立ち上げ経験やシーケンス制御の知見を活かせます。" },
+      { cat: "電子部品メーカー", role: "組込みソフト・制御開発", pay: "520–750", tags: ["C/C++", "在宅可", "自社製品"], note: "制御仕様の策定から評価まで、自社製品を一貫して担当します。" },
+      { cat: "大手電機メーカー", role: "電源・アナログ回路設計", pay: "550–780", tags: ["先行開発", "フレックス", "年休126日"], note: "量産経験を活かし、次世代製品の要素技術開発へ進める求人です。" }
+    ],
+    admin: [
+      { cat: "医療機器メーカー", role: "品質保証・QMS推進", pay: "500–700", tags: ["ISO13485", "監査対応", "土日祝休み"], note: "顧客対応中心の品質経験から、仕組みづくりを担うポジションへ。" },
+      { cat: "自動車部品メーカー", role: "生産管理・SCM", pay: "480–650", tags: ["需給管理", "フレックス", "海外連携"], note: "生産計画や納期調整の経験を、グローバルな供給管理で活かせます。" },
+      { cat: "化学メーカー", role: "品質管理・工程改善", pay: "450–620", tags: ["統計解析", "残業月15h", "手当充実"], note: "検査業務だけでなく、不良低減や工程設計まで関われる環境です。" }
+    ],
+    it: [
+      { cat: "大手メーカー", role: "社内SE・基幹システム企画", pay: "520–720", tags: ["SAP", "リモート可", "ユーザー側"], note: "SIerでの導入経験を活かし、事業会社側で企画から運用まで担います。" },
+      { cat: "製造業DX部門", role: "工場DX・データ活用推進", pay: "550–780", tags: ["IoT", "データ分析", "企画上流"], note: "製造現場の理解とITスキルを掛け合わせ、スマートファクトリー化を推進。" },
+      { cat: "グローバルメーカー", role: "ITインフラ・セキュリティ", pay: "500–700", tags: ["クラウド", "英語活用", "年休125日"], note: "社内インフラ運用から、全社基盤の企画・セキュリティ強化へ進めます。" }
+    ]
+  };
+  var grid = document.getElementById("jobsGrid");
+  var tabs = document.querySelectorAll(".jobs-tabs button");
+  function renderJobs(key) {
+    grid.innerHTML = JOBS[key].map(function (j) {
+      return '<article class="job">'
+        + '<small>' + j.cat + '</small>'
+        + '<h3>' + j.role + '</h3>'
+        + '<p class="salary"><span class="num">' + j.pay + '</span><span class="unit">万円</span></p>'
+        + '<div class="job-tags">' + j.tags.map(function (t) { return "<span>" + t + "</span>"; }).join("") + '</div>'
+        + '<p>' + j.note + '</p>'
+        + '</article>';
+    }).join("");
+  }
+  tabs.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      tabs.forEach(function (b) { b.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+      renderJobs(btn.dataset.tab);
+    });
+  });
+  renderJobs("sales");
+
+  /* ============ 事例カルーセルの矢印 ============ */
+  var scroller = document.getElementById("caseScroller");
+  var prev = document.getElementById("casePrev");
+  var next = document.getElementById("caseNext");
+  if (scroller && prev && next) {
+    var step = function () { return scroller.querySelector(".case").getBoundingClientRect().width + 16; };
+    prev.addEventListener("click", function () { scroller.scrollBy({ left: -step(), behavior: "smooth" }); });
+    next.addEventListener("click", function () { scroller.scrollBy({ left: step(), behavior: "smooth" }); });
+  }
+
+  /* ============ アドバイザー：3秒オートカルーセル ============ */
+  var advisersCarousel = document.querySelector(".advisers-grid");
+  var advisersPrev = document.getElementById("advisersPrev");
+  var advisersNext = document.getElementById("advisersNext");
+  var advisersDots = document.getElementById("advisersDots");
+  if (advisersCarousel && advisersPrev && advisersNext && advisersDots) {
+    var adviserCards = Array.from(advisersCarousel.querySelectorAll(".adviser"));
+    var adviserIndex = 0;
+    var adviserPages = 1;
+    var adviserTimer = null;
+
+    function adviserStep() {
+      if (!adviserCards.length) return 0;
+      return adviserCards[0].getBoundingClientRect().width + 18;
+    }
+    function buildAdviserDots() {
+      var stepWidth = adviserStep();
+      var visible = stepWidth ? Math.max(1, Math.round((advisersCarousel.clientWidth + 18) / stepWidth)) : 1;
+      adviserPages = Math.max(1, adviserCards.length - visible + 1);
+      adviserIndex = Math.min(adviserIndex, adviserPages - 1);
+      advisersDots.innerHTML = "";
+      for (var i = 0; i < adviserPages; i++) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.setAttribute("aria-label", (i + 1) + "ページ目を表示");
+        dot.dataset.index = String(i);
+        dot.addEventListener("click", function () { goToAdviser(Number(this.dataset.index), true); });
+        advisersDots.appendChild(dot);
+      }
+      updateAdviserDots();
+    }
+    function updateAdviserDots() {
+      advisersDots.querySelectorAll("button").forEach(function (dot, i) {
+        dot.classList.toggle("is-active", i === adviserIndex);
+      });
+    }
+    function goToAdviser(index, restart) {
+      adviserIndex = (index + adviserPages) % adviserPages;
+      advisersCarousel.scrollTo({ left: adviserIndex * adviserStep(), behavior: reduceMotion ? "auto" : "smooth" });
+      updateAdviserDots();
+      if (restart) startAdviserAuto();
+    }
+    function startAdviserAuto() {
+      clearInterval(adviserTimer);
+      if (!reduceMotion && adviserPages > 1) adviserTimer = setInterval(function () { goToAdviser(adviserIndex + 1, false); }, 3000);
+    }
+    advisersPrev.addEventListener("click", function () { goToAdviser(adviserIndex - 1, true); });
+    advisersNext.addEventListener("click", function () { goToAdviser(adviserIndex + 1, true); });
+    advisersCarousel.addEventListener("pointerenter", function () { clearInterval(adviserTimer); });
+    advisersCarousel.addEventListener("pointerleave", startAdviserAuto);
+    advisersCarousel.addEventListener("focusin", function () { clearInterval(adviserTimer); });
+    advisersCarousel.addEventListener("focusout", startAdviserAuto);
+    advisersCarousel.addEventListener("scroll", function () {
+      var stepWidth = adviserStep();
+      if (!stepWidth) return;
+      adviserIndex = Math.min(adviserPages - 1, Math.max(0, Math.round(advisersCarousel.scrollLeft / stepWidth)));
+      updateAdviserDots();
+    }, { passive: true });
+    addEventListener("resize", function () { buildAdviserDots(); startAdviserAuto(); });
+    buildAdviserDots();
+    startAdviserAuto();
+  }
+
+  /* ============ 最終セクション：通常フォーム ============ */
+  var closingForm = document.getElementById("closingForm");
+  if (closingForm) {
+    closingForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      closingForm.innerHTML = '<div class="closing-success">'
+        + '<h3>お申し込みありがとうございます</h3>'
+        + '<p>担当アドバイザーより1営業日以内にご連絡します。<br>面談は平日夜・土曜、オンラインでも可能です。</p>'
+        + '</div>';
+    });
+  }
+
+})();
+</script>
+</body>
+</html>
