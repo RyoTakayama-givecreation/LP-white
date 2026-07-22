@@ -362,6 +362,11 @@
     .award-company { display: flex; flex-direction: column; gap: 9px; }
     .award-company strong { color: var(--navy); font-family: var(--sans); font-size: 23px; font-weight: 800; letter-spacing: .06em; line-height: 1; }
     .award-company small { color: var(--faint); font-family: var(--num); font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+    .award-company-logo { display: block; width: auto; height: auto; overflow: visible; }
+    .award-company-logo img { display: block; width: auto; height: auto; max-width: none; object-fit: contain; object-position: center; mix-blend-mode: multiply; transform: none; }
+    .award-company-logo--ihi img { width: 112px; }
+    .award-company-logo--hitachi img { width: 112px; }
+    .award-company-logo--omron img { width: 118px; }
     .award-copy .award-label { margin: 0 0 7px; color: var(--blue); font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
     .award-copy h3 { margin: 0; color: var(--navy); font-family: var(--serif); font-size: clamp(17px, 1.55vw, 21px); font-weight: 650; line-height: 1.55; letter-spacing: .035em; }
     .award-copy p { margin: 8px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.8; }
@@ -730,12 +735,12 @@
       .reasons-rail .section-sub { margin-inline: auto; }
 
       /* 02 理由セクション：スクロールでカードが重なっていくスタック演出 */
-      .reasons-list { display: flow-root; margin-bottom: -226px; }
+      .reasons-list { --reason-stack-top: max(28px, env(safe-area-inset-top)); display: flow-root; margin-bottom: -226px; }
       .reason { box-sizing: border-box; position: sticky; margin-bottom: 24px; }
       .reason.rev { opacity: 1; transform: none; transition: none; }
-      .reason:nth-of-type(1) { top: 14px; z-index: 1; margin-bottom: 274px; }
-      .reason:nth-of-type(2) { top: 38px; z-index: 2; margin-bottom: 250px; }
-      .reasons-list #reason-3 { top: 62px; z-index: 3; margin-bottom: 226px; }
+      .reason:nth-of-type(1) { top: var(--reason-stack-top); z-index: 1; margin-bottom: 274px; }
+      .reason:nth-of-type(2) { top: calc(var(--reason-stack-top) + 24px); z-index: 2; margin-bottom: 250px; }
+      .reasons-list #reason-3 { top: calc(var(--reason-stack-top) + 48px); z-index: 3; margin-bottom: 226px; }
       .reasons .inline-cta { position: relative; z-index: 0; }
 
       /* Before / After は文章量に影響されない縦フロー */
@@ -770,10 +775,13 @@
       .awards-intro .section-sub { box-sizing: border-box; width: 100%; max-width: 340px; margin: 16px auto 0; padding: 0; font-size: 13px; line-height: 1.9; overflow-wrap: anywhere; }
       .awards-list { display: flex; align-items: stretch; gap: 12px; overflow-x: auto; overflow-y: hidden; margin-inline: -20px; padding: 2px 20px 12px; border-top: 0; scroll-padding-inline: 20px; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
       .awards-list::-webkit-scrollbar { display: none; }
-      .award-card { box-sizing: border-box; flex: 0 0 calc(100vw - 64px); display: grid; grid-template-columns: 82px minmax(0, 1fr); grid-template-rows: 1fr auto; gap: 10px 14px; width: calc(100vw - 64px); max-width: 340px; min-width: 0; min-height: 228px; padding: 21px 18px; border: 1px solid rgba(16, 43, 82, .14); border-radius: 12px; background: rgba(255, 255, 255, .62); scroll-snap-align: start; scroll-snap-stop: always; }
-      .award-company { grid-column: 1; grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; justify-content: flex-start; width: auto; padding-top: 3px; }
-      .award-company strong { font-size: 17px; }
-      .award-company small { flex-shrink: 0; }
+      .award-card { box-sizing: border-box; flex: 0 0 calc(100vw - 64px); display: grid; grid-template-columns: clamp(82px, 25vw, 96px) minmax(0, 1fr); grid-template-rows: 1fr auto; gap: 10px 14px; width: calc(100vw - 64px); max-width: 340px; min-width: 0; min-height: 228px; padding: 21px 18px; border: 1px solid rgba(16, 43, 82, .14); border-radius: 12px; background: rgba(255, 255, 255, .62); scroll-snap-align: start; scroll-snap-stop: always; }
+      .award-company { grid-column: 1; grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; justify-content: flex-start; width: 100%; padding-top: 3px; }
+      .award-company-logo { max-width: 100%; }
+      .award-company-logo img { max-width: 100%; }
+      .award-company-logo--ihi img,
+      .award-company-logo--hitachi img,
+      .award-company-logo--omron img { width: 82px; }
       .award-copy { grid-column: 2; width: 100%; min-width: 0; }
       .award-copy .award-label { margin-bottom: 5px; font-size: 8.5px; letter-spacing: .07em; overflow-wrap: anywhere; }
       .award-copy h3 { font-size: 16px; line-height: 1.55; }
@@ -784,6 +792,13 @@
       .jobs-grid { grid-template-columns: 1fr; }
       .advisers-grid { max-width: none; margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px; }
       .adviser { flex-basis: min(82vw, 360px); }
+      .mobile-reveal-off .rev {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        transition-delay: 0s !important;
+        animation: none !important;
+      }
       .phases-grid { display: block; border-bottom: 0; }
       .phase { padding: 25px 8px 25px 48px; border-right: 0; border-bottom: 1px solid rgba(16,43,82,.14); background: transparent; }
       .phase::before { top: 27px; left: 7px; right: auto; font-size: 14px; }
@@ -978,7 +993,7 @@
   </section>
 
   <!-- 03 受賞実績 -->
-  <section class="section awards" id="awards">
+  <section class="section awards mobile-reveal-off" id="awards">
     <div class="section-inner awards-layout">
       <div class="awards-intro rev">
         <div class="section-head">
@@ -990,7 +1005,7 @@
       <div class="awards-panel">
         <div class="awards-list">
           <article class="award-card rev">
-            <div class="award-company"><strong>IHI</strong><small>2025</small></div>
+            <div class="award-company"><span class="award-company-logo award-company-logo--ihi"><img src="assets/images/logo/logo_slider19.webp" alt="IHI"></span></div>
             <div class="award-copy">
               <p class="award-label en">IHI AGENT AWARD 2024</p>
               <h3>優秀パートナー賞</h3>
@@ -999,18 +1014,18 @@
             <div class="award-result"><span>書類選考通過率 第1位</span><span>内定決定数 第2位</span></div>
           </article>
           <article class="award-card rev rev-d1">
-            <div class="award-company"><strong>HITACHI</strong><small>2025</small></div>
+            <div class="award-company"><span class="award-company-logo award-company-logo--hitachi"><img src="assets/images/logo/Hitachi_Global_Logo_Black_RGB.png" alt="HITACHI"></span></div>
             <div class="award-copy">
-              <p class="award-label en">HITACHI AGENT AWARD</p>
+              <p class="award-label en">HITACHI AGENT AWARD 2025</p>
               <h3>TOP10 AGENT 応募決定率 第1位</h3>
               <p>求人要件とキャリア志向を結びつける、精度の高い提案力が評価されました。</p>
             </div>
             <div class="award-result"><span>2年連続受賞</span></div>
           </article>
           <article class="award-card rev rev-d2">
-            <div class="award-company"><strong>OMRON</strong><small>2024</small></div>
+            <div class="award-company"><span class="award-company-logo award-company-logo--omron"><img src="assets/images/logo/logo_slider11.webp" alt="OMRON"></span></div>
             <div class="award-copy">
-              <p class="award-label en">EXCELLENT PARTNER AWARD</p>
+              <p class="award-label en">OMRON / 2023年度</p>
               <h3>優秀パートナー賞</h3>
               <p>キャリア採用への貢献と、応募者の高い選考通過率が評価されました。</p>
             </div>
@@ -1168,7 +1183,7 @@
   </section>
 
   <!-- 07 アドバイザー -->
-  <section class="section advisers" id="advisers">
+  <section class="section advisers mobile-reveal-off" id="advisers">
     <div class="section-inner">
       <div class="advisers-layout">
         <div class="advisers-rail">
