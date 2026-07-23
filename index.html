@@ -489,12 +489,11 @@
       box-shadow: 0 1px 2px rgba(16, 43, 82, .04), 0 14px 28px -22px rgba(16, 43, 82, .48);
     }
     .case-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-    .case-head i {
-      flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--sky), var(--blue));
-      font-style: normal; color: #fff; font-weight: 700; font-size: 13px;
-      display: grid; place-items: center;
+    .case-avatar {
+      flex: 0 0 42px; width: 42px; height: 42px;
+      border-radius: 50%; overflow: hidden;
     }
+    .case-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .case-head p { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.5; color: var(--navy); }
     .case-head small { display: block; color: var(--faint); font-size: 10.5px; font-weight: 600; }
     .case-flow { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: stretch; margin-bottom: 12px; }
@@ -521,23 +520,18 @@
     .phases { background: #fff; }
     .phases-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-      counter-reset: phase;
       border-block: 1px solid rgba(16,43,82,.18);
     }
     .phase {
-      position: relative; counter-increment: phase;
+      position: relative;
       padding: 30px 30px 28px;
       background: rgba(255,255,255,.28); border: 0; border-right: 1px solid rgba(16,43,82,.14); border-radius: 0;
       box-shadow: none;
     }
     .phase:last-child { border-right: 0; }
-    .phase::before {
-      content: "0" counter(phase); position: absolute; top: 31px; right: 28px;
-      font-family: var(--display-num); font-size: 15px; font-weight: 700; letter-spacing: .08em; color: var(--sky);
-    }
     .phase small { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; color: var(--faint); font-size: 10px; font-weight: 700; letter-spacing: .08em; }
     .phase small::before { content: ""; width: 16px; height: 1px; background: var(--sky); }
-    .phase h3 { margin: 0 0 13px; padding-right: 28px; font-family: var(--serif); font-size: 19px; font-weight: 650; line-height: 1.55; color: var(--navy); }
+    .phase h3 { margin: 0 0 13px; font-family: var(--serif); font-size: 19px; font-weight: 650; line-height: 1.55; color: var(--navy); }
     .phase p { margin: 0 0 18px; color: var(--muted); font-size: 12.5px; line-height: 1.85; }
     .phase ul { margin: 0; padding: 15px 0 0; border-top: 1px solid rgba(16,43,82,.1); list-style: none; display: grid; gap: 9px; }
     .phase li { position: relative; padding-left: 15px; font-size: 11.5px; font-weight: 600; line-height: 1.6; color: var(--navy); }
@@ -881,8 +875,7 @@
         animation: none !important;
       }
       .phases-grid { display: block; border-bottom: 0; }
-      .phase { padding: 25px 8px 25px 48px; border-right: 0; border-bottom: 1px solid rgba(16,43,82,.14); background: transparent; }
-      .phase::before { top: 27px; left: 7px; right: auto; font-size: 14px; }
+      .phase { padding: 25px 8px; border-right: 0; border-bottom: 1px solid rgba(16,43,82,.14); background: transparent; }
       .phase small { margin-bottom: 9px; }
       .phase h3 { margin-bottom: 9px; padding-right: 0; font-size: 18px; }
       .phase p { margin-bottom: 14px; }
@@ -1187,7 +1180,7 @@
     <div class="section-inner">
       <div class="cases-scroller" id="caseScroller" aria-label="転職事例の一覧（横にスクロールできます）">
         <article class="case">
-          <div class="case-head"><i>機</i><p>28歳・機械設計（産業機械）<small>→ EV部品メーカーへ</small></p></div>
+          <div class="case-head"><span class="case-avatar"><img src="assets/images/avatars/success-mechanical-design-v2.png" alt="" width="256" height="256" loading="lazy"></span><p>28歳・機械設計（産業機械）<small>→ EV部品メーカーへ</small></p></div>
           <div class="case-flow">
             <div><small class="en">Before</small><b>産業機械<br>改良設計</b></div><span class="arrow">›</span>
             <div class="to"><small class="en">After</small><b>EV部品<br>先行開発</b></div>
@@ -1202,7 +1195,7 @@
           </blockquote>
         </article>
         <article class="case">
-          <div class="case-head"><i>生</i><p>31歳・生産技術（自動車部品）<small>→ 完成車メーカーへ</small></p></div>
+          <div class="case-head"><span class="case-avatar"><img src="assets/images/avatars/success-production-engineering.png" alt="" width="256" height="256" loading="lazy"></span><p>31歳・生産技術（自動車部品）<small>→ 完成車メーカーへ</small></p></div>
           <div class="case-flow">
             <div><small class="en">Before</small><b>既存ライン<br>工程改善</b></div><span class="arrow">›</span>
             <div class="to"><small class="en">After</small><b>次世代ライン<br>設備企画</b></div>
@@ -1217,7 +1210,7 @@
           </blockquote>
         </article>
         <article class="case">
-          <div class="case-head"><i>電</i><p>29歳・電気設計（装置メーカー）<small>→ 半導体製造装置メーカーへ</small></p></div>
+          <div class="case-head"><span class="case-avatar"><img src="assets/images/avatars/success-electrical-design.png" alt="" width="256" height="256" loading="lazy"></span><p>29歳・電気設計（装置メーカー）<small>→ 半導体製造装置メーカーへ</small></p></div>
           <div class="case-flow">
             <div><small class="en">Before</small><b>配電盤<br>電気設計</b></div><span class="arrow">›</span>
             <div class="to"><small class="en">After</small><b>装置制御<br>回路設計</b></div>
@@ -1232,7 +1225,7 @@
           </blockquote>
         </article>
         <article class="case">
-          <div class="case-head"><i>品</i><p>33歳・品質保証（電子部品）<small>→ 医療機器メーカーへ</small></p></div>
+          <div class="case-head"><span class="case-avatar"><img src="assets/images/avatars/success-quality-assurance.png" alt="" width="256" height="256" loading="lazy"></span><p>33歳・品質保証（電子部品）<small>→ 医療機器メーカーへ</small></p></div>
           <div class="case-flow">
             <div><small class="en">Before</small><b>顧客対応<br>品質保証</b></div><span class="arrow">›</span>
             <div class="to"><small class="en">After</small><b>医療機器<br>QMS推進</b></div>
@@ -1247,7 +1240,7 @@
           </blockquote>
         </article>
         <article class="case">
-          <div class="case-head"><i>調</i><p>30歳・調達（機械部品）<small>→ 大手重工メーカーへ</small></p></div>
+          <div class="case-head"><span class="case-avatar"><img src="assets/images/avatars/success-procurement.png" alt="" width="256" height="256" loading="lazy"></span><p>30歳・調達（機械部品）<small>→ 大手重工メーカーへ</small></p></div>
           <div class="case-flow">
             <div><small class="en">Before</small><b>国内調達<br>納期管理</b></div><span class="arrow">›</span>
             <div class="to"><small class="en">After</small><b>グローバル<br>戦略調達</b></div>
@@ -1262,7 +1255,7 @@
           </blockquote>
         </article>
         <article class="case">
-          <div class="case-head"><i>IT</i><p>34歳・SE（SIer）<small>→ メーカー社内SEへ</small></p></div>
+          <div class="case-head"><span class="case-avatar"><img src="assets/images/avatars/success-inhouse-se.png" alt="" width="256" height="256" loading="lazy"></span><p>34歳・SE（SIer）<small>→ メーカー社内SEへ</small></p></div>
           <div class="case-flow">
             <div><small class="en">Before</small><b>受託開発<br>SE</b></div><span class="arrow">›</span>
             <div class="to"><small class="en">After</small><b>製造業<br>社内SE</b></div>
@@ -1290,7 +1283,7 @@
       <div class="section-head rev">
         <span class="section-no en">06 / How to use</span>
         <h2 class="section-title">転職を決める前から、<br>一緒に考えられます。</h2>
-        <p class="section-sub">今の温度感に合わせて使い方を選べます。<br class="sp-br">相談したからといって、転職を勧め続けることはありません。</p>
+        <p class="section-sub">転職時期が未定でも、相談できます。<br class="sp-br">転職を無理に勧めることはありません。</p>
       </div>
       <div class="phases-grid">
         <div class="phase rev">
