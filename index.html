@@ -51,6 +51,7 @@
     .en { font-family: var(--num); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
     .num { font-family: var(--display-num); font-weight: 700; letter-spacing: .015em; font-variant-numeric: tabular-nums; }
     .u-note { color: var(--faint); font-size: 11px; line-height: 1.8; }
+    .sp-br { display: none; }
 
     /* ============ 出現・ハイライト ============ */
     .rev { opacity: 0; transform: translateY(22px); transition: opacity .75s ease, transform .75s cubic-bezier(.22, .74, .22, 1); }
@@ -232,21 +233,36 @@
 
     /* ============ 01 お悩み ============ */
     .pains {
+      padding-top: 76px;
+      padding-bottom: 74px;
       background:
         radial-gradient(circle at 12% 4%, rgba(39, 125, 190, .14), transparent 30%),
         linear-gradient(180deg, #dcebf6 0%, #edf5fa 52%, #f5f9fc 100%);
     }
+    .pains .section-head { margin-bottom: 30px; }
     .pains-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .pain {
-      padding: 24px 26px 22px;
-      background: #fff;
+      --pain-image-zone: 112px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      min-height: 124px;
+      padding: 18px;
+      background: linear-gradient(90deg, #fff 0, #fff var(--pain-image-zone), #f5f9fc 100%);
       border: 1px solid #e4e9ef;
       border-radius: 14px;
       box-shadow: 0 8px 25px rgba(16, 43, 82, .05);
     }
-    .pain small { display: block; margin-bottom: 9px; color: var(--blue); font-size: 11px; font-weight: 600; letter-spacing: .06em; }
-    .pain p { margin: 0; font-size: 15px; font-weight: 400; line-height: 1.85; }
-    .pains-answer { margin-top: 52px; text-align: center; }
+    .pain-copy { min-width: 0; }
+    .pain small { display: block; color: #27313d; font-size: 10.5px; font-weight: 600; letter-spacing: .055em; }
+    .pain p { margin: 0 0 6px; color: var(--ink); font-size: 13.5px; font-weight: 500; line-height: 1.78; }
+    .pain-avatar {
+      flex: 0 0 84px;
+      width: 84px;
+      margin: 0;
+    }
+    .pain-avatar img { width: 100%; height: auto; }
+    .pains-answer { margin-top: 38px; text-align: center; }
     .pains-answer h3 {
       margin: 0 0 14px;
       font-family: var(--serif);
@@ -256,7 +272,6 @@
     .pains-answer h3 .accent { display: inline-block; white-space: nowrap; color: var(--blue); font-weight: 700; }
     .pains-answer h3 .mark { font-size: clamp(28px, 4vw, 46px); line-height: 1.38; letter-spacing: .015em; }
     .pains-answer h3 .mark.is-visible { background-size: 100% .32em; }
-    .pains-answer p { max-width: 620px; margin: 0 auto; color: var(--muted); font-size: 14px; }
 
     /* ============ 02 選ばれる理由（sticky章立て） ============ */
     .reasons { padding-top: 68px; background: #fff; }
@@ -711,6 +726,7 @@
       .hero-person { right: -275px; bottom: -28px; width: 865px; }
     }
     @media (max-width: 720px) {
+      .sp-br { display: block; }
       html { scroll-padding-top: 0; }
       .site-header { position: absolute; height: 60px; padding: 0 12px 0 16px; }
       .site-header img { height: 25px; }
@@ -727,7 +743,26 @@
       .hero-award-note { margin-top: 10px; }
       .hero-visual { inset: 0; opacity: .2; }
       .hero-person { right: clamp(-445px, -52svh, -385px); bottom: 0; width: clamp(880px, 117svh, 990px); }
-      .pains-grid { grid-template-columns: 1fr; }
+      .pains-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        overflow: visible;
+        margin: 0;
+        padding: 0;
+      }
+      .pain {
+        --pain-image-zone: 96px;
+        min-height: 0;
+        padding: 14px;
+        border-radius: 14px;
+      }
+      .pains { padding-top: 54px; padding-bottom: 54px; }
+      .pains .section-head { margin-bottom: 26px; }
+      .pain small { font-size: 10px; }
+      .pain p { margin-bottom: 4px; font-size: 12.5px; line-height: 1.72; }
+      .pain-avatar { flex-basis: 72px; width: 72px; }
+      .pains-answer { margin-top: 32px; }
       .reasons-layout { grid-template-columns: 1fr; }
       .reasons-rail { position: static; }
       .reasons-nav, .reasons-progress { display: none; }
@@ -909,15 +944,38 @@
         <span class="section-no en">01 / Your concerns</span>
         <h2 class="section-title">その悩み、<span class="accent"><span class="mark">あきらめる理由</span></span>に<br>していませんか？</h2>
       </div>
-      <div class="pains-grid">
-        <div class="pain rev"><small>28歳・機械設計</small><p>改良設計ばかりで、ゼロから設計する経験を積めない。このままで市場価値は上がるのだろうか。</p></div>
-        <div class="pain rev rev-d1"><small>31歳・生産技術</small><p>設備導入や工程改善で成果を出しても、評価は変わらない。今の年収は、経験に見合っているのだろうか。</p></div>
-        <div class="pain rev rev-d2"><small>34歳・社内SE</small><p>問い合わせと運用保守で毎日が終わる。企画やDXへ進みたいのに、上流の経験を積む機会がない。</p></div>
-        <div class="pain rev rev-d3"><small>33歳・品質保証</small><p>品質対応に追われる働き方を変えたい。でも求人票だけでは、組織体制や本当の残業時間まで見えない。</p></div>
+      <div class="pains-grid" role="list" aria-label="製造業で働く方のキャリアのお悩み">
+        <article class="pain rev" role="listitem">
+          <figure class="pain-avatar"><img src="assets/images/avatars/concern-mechanical-design.png" alt="" width="512" height="512" loading="lazy"></figure>
+          <div class="pain-copy">
+            <p>改良設計ばかりで、ゼロから設計する機会がない。このまま市場価値は上がるのだろうか。</p>
+            <small>28歳・機械設計</small>
+          </div>
+        </article>
+        <article class="pain rev rev-d1" role="listitem">
+          <figure class="pain-avatar"><img src="assets/images/avatars/concern-production-engineering.png" alt="" width="512" height="512" loading="lazy"></figure>
+          <div class="pain-copy">
+            <p>設備導入や工程改善で成果を出しても、評価も年収も変わらない。経験に見合っているのだろうか。</p>
+            <small>31歳・生産技術</small>
+          </div>
+        </article>
+        <article class="pain rev rev-d2" role="listitem">
+          <figure class="pain-avatar"><img src="assets/images/avatars/concern-inhouse-se.png" alt="" width="512" height="512" loading="lazy"></figure>
+          <div class="pain-copy">
+            <p>問い合わせと運用保守で毎日が終わる。企画やDXへ進みたいのに、上流経験を積む機会がない。</p>
+            <small>34歳・社内SE</small>
+          </div>
+        </article>
+        <article class="pain rev rev-d3" role="listitem">
+          <figure class="pain-avatar"><img src="assets/images/avatars/concern-quality-assurance.png" alt="" width="512" height="512" loading="lazy"></figure>
+          <div class="pain-copy">
+            <p>品質対応に追われる毎日を変えたい。でも求人票だけでは、組織体制や本当の残業時間まで見えない。</p>
+            <small>33歳・品質保証</small>
+          </div>
+        </article>
       </div>
       <div class="pains-answer rev">
         <h3>ギブクリエーションなら、<br><span class="accent"><span class="mark">専門性を、次のキャリアへ。</span></span></h3>
-        <p>製造業を知るアドバイザーが、担当製品や技術要素、改善実績を企業に伝わる強みへ整理。採用背景や職場の実情まで確かめたうえで、あなたの専門性が活きる一社をご提案します。</p>
       </div>
     </div>
   </section>
@@ -930,7 +988,7 @@
           <div class="section-head">
             <span class="section-no en">02 / Why GIVE CREATION</span>
             <h2 class="section-title"><span class="title-line">製造業の転職を、</span><span class="accent title-line">もっと解像度高く。</span></h2>
-            <p class="section-sub">製造業を知る担当者が、専門性の言語化、採用背景や組織の実情、企業別の選考対策まで。求人の量ではなく、納得できる一社に出会うための提案を行います。</p>
+            <p class="section-sub">経験を正しく捉え、企業の実情まで確かめる。<br>納得できる一社をご提案します。</p>
           </div>
           <nav class="reasons-nav" aria-label="理由の一覧">
             <a href="#reason-1" data-spy="reason-1"><span class="n">01</span>経験を、伝わる言葉に変える</a>
@@ -999,7 +1057,7 @@
         <div class="section-head">
           <span class="section-no en">03 / Awards &amp; Recognition</span>
           <h2 class="section-title"><span class="awards-title-small">メーカー企業から、</span><span class="awards-title-main">支援品質を評価</span><span class="awards-title-small">されています。</span></h2>
-          <p class="section-sub">マッチング精度や選考成果を評価され、メーカー各社のエージェントアワードを受賞しています。</p>
+          <p class="section-sub">マッチング精度や選考成果を評価され、<br>メーカー各社のエージェントアワードを受賞しています。</p>
         </div>
       </div>
       <div class="awards-panel">
@@ -1043,7 +1101,7 @@
       <div class="section-head rev">
         <span class="section-no en">04 / Job examples</span>
         <h2 class="section-title">あなたの経験が活きる、<br><span class="accent">求人の一例</span></h2>
-        <p class="section-sub">職種を選ぶと求人例が切り替わります。非公開求人を含め、条件に合わせて個別にご案内します。</p>
+        <p class="section-sub">職種を選ぶと求人例が切り替わります。<br>非公開求人を含め、条件に合わせて個別にご案内します。</p>
       </div>
       <div class="jobs-tabs" role="tablist" aria-label="職種で求人例を切り替え">
         <button class="is-active" data-tab="sales">機械・生産技術</button>
@@ -1062,7 +1120,7 @@
       <div class="section-head rev">
         <span class="section-no en">05 / Success stories</span>
         <h2 class="section-title">変わったのは、<br><span class="accent"><span class="mark">年収だけじゃない</span></span>。</h2>
-        <p class="section-sub" style="margin-left:0;">年収・働き方・仕事内容。何をどう変えたか、実際の事例でご覧ください。</p>
+        <p class="section-sub" style="margin-left:0;">年収・働き方・仕事内容。<br class="sp-br">何をどう変えたか、実際の事例でご覧ください。</p>
       </div>
       <div class="cases-arrows rev">
         <button id="casePrev" aria-label="前の事例へ">‹</button>
@@ -1157,7 +1215,7 @@
       <div class="section-head rev">
         <span class="section-no en">06 / How to use</span>
         <h2 class="section-title">転職を決める前から、<br>一緒に考えられます。</h2>
-        <p class="section-sub">今の温度感に合わせて使い方を選べます。相談したからといって、転職を勧め続けることはありません。</p>
+        <p class="section-sub">今の温度感に合わせて使い方を選べます。<br class="sp-br">相談したからといって、転職を勧め続けることはありません。</p>
       </div>
       <div class="phases-grid">
         <div class="phase rev">
@@ -1190,7 +1248,7 @@
           <div class="section-head rev">
             <span class="section-no en">07 / Advisers</span>
             <h2 class="section-title">メーカー転職を知る、<br><span class="accent">専門コンサルタント。</span></h2>
-            <p class="section-sub">メーカーの現場、技術、採用を知る担当者が、企業選びから書類・面接対策まで一貫して支援します。</p>
+            <p class="section-sub">メーカーの現場、技術、採用を知る担当者が、<br class="sp-br">企業選びから書類・面接対策まで一貫して支援します。</p>
           </div>
         </div>
         <div class="advisers-grid">
@@ -1268,7 +1326,7 @@
       <div class="section-head rev">
         <span class="section-no en">08 / Simple steps</span>
         <h2 class="section-title">働きながらでも進められる、<br><span class="accent">5つのステップ</span></h2>
-        <p class="section-sub">登録から内定まで、すべて無料。書類作成や企業との日程調整も担当者が代行します。</p>
+        <p class="section-sub">登録から内定まで、すべて無料。<br class="sp-br">書類作成や企業との日程調整も担当者が代行します。</p>
       </div>
       <div class="flow-grid rev">
         <div class="flow-step rev"><span class="n">01</span><h3>無料登録</h3><p>フォーム入力は約60秒。今すぐ転職しなくても大丈夫です。</p><small>所要 約60秒</small></div>
@@ -1322,7 +1380,7 @@
       <div class="closing-copy">
         <span class="section-no en rev">10 / Start your next career</span>
         <h2 class="rev">迷ったまま、<br>また1年が過ぎる前に。</h2>
-        <p class="rev">転職を決めていなくても構いません。いまの経験で選べる求人と、年収・働き方の可能性を、一度いっしょに整理しませんか。</p>
+        <p class="rev">転職を決めていなくても構いません。<br>いまの経験で選べる求人と、年収・働き方の可能性を、<br>一度いっしょに整理しませんか。</p>
         <p class="closing-meta rev"><span>完全無料</span><span>平日夜・土曜OK</span><span>オンライン面談対応</span></p>
       </div>
       <form class="closing-form rev" id="closingForm">
