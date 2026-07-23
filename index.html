@@ -397,17 +397,46 @@
 
     /* ============ 04 求人例 ============ */
     .jobs { padding-block: 58px 72px; background: #fff; }
-    .jobs-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+    .jobs-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+      width: min(760px, 100%);
+      margin: 0 auto 36px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #f3f6f9;
+    }
     .jobs-tabs button {
-      padding: 11px 22px; border-radius: 999px; cursor: pointer;
-      border: 1px solid var(--line); background: #fff; color: var(--muted);
-      font-size: 13px; font-weight: 600;
-      transition: all .25s ease;
+      position: relative;
+      min-height: 50px;
+      padding: 10px 12px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color .2s ease, background .2s ease, box-shadow .2s ease;
     }
     .jobs-tabs button.is-active {
-      border-color: transparent; color: #fff;
-      background: linear-gradient(105deg, var(--sky), var(--blue));
-      box-shadow: 0 10px 22px rgba(23, 105, 176, .3);
+      color: var(--blue);
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(16, 43, 82, .1);
+    }
+    .jobs-tabs button.is-active::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 6px;
+      width: 20px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--blue);
+      transform: translateX(-50%);
     }
     .jobs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .job {
@@ -781,12 +810,12 @@
       .reasons-rail .section-sub { margin-inline: auto; }
 
       /* 02 理由セクション：スクロールでカードが重なっていくスタック演出 */
-      .reasons-list { --reason-stack-top: max(28px, env(safe-area-inset-top)); display: flow-root; width: 100%; min-width: 0; margin-inline: auto; margin-bottom: -226px; }
+      .reasons-list { --reason-stack-top: max(28px, env(safe-area-inset-top)); display: flow-root; width: 100%; min-width: 0; margin-inline: auto; margin-bottom: -92px; }
       .reason { box-sizing: border-box; position: sticky; width: 100%; max-width: 100%; margin-inline: auto; margin-bottom: 24px; box-shadow: none; }
       .reason.rev { opacity: 1; transform: none; transition: none; }
-      .reason:nth-of-type(1) { top: var(--reason-stack-top); z-index: 1; margin-bottom: 274px; }
-      .reason:nth-of-type(2) { top: calc(var(--reason-stack-top) + 24px); z-index: 2; margin-bottom: 250px; }
-      .reasons-list #reason-3 { top: calc(var(--reason-stack-top) + 48px); z-index: 3; margin-bottom: 226px; }
+      .reason:nth-of-type(1) { top: var(--reason-stack-top); z-index: 1; margin-bottom: 140px; }
+      .reason:nth-of-type(2) { top: calc(var(--reason-stack-top) + 24px); z-index: 2; margin-bottom: 116px; }
+      .reasons-list #reason-3 { top: calc(var(--reason-stack-top) + 48px); z-index: 3; margin-bottom: 92px; }
       .reasons .inline-cta { position: relative; z-index: 0; }
 
       /* Before / After は文章量に影響されない縦フロー */
@@ -839,6 +868,8 @@
       .award-result { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: flex-start; width: 100%; margin-top: 0; min-width: 0; }
       .award-result span { padding: 4px 7px; font-size: 8.5px; }
       .awards-note { margin-top: 8px; text-align: left; }
+      .jobs-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 28px; }
+      .jobs-tabs button { min-height: 50px; padding: 9px 6px; font-size: 11.5px; }
       .jobs-grid { grid-template-columns: 1fr; }
       .advisers-grid { max-width: none; margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px; }
       .adviser { flex-basis: min(82vw, 360px); }
@@ -1016,7 +1047,7 @@
           <article class="reason rev" id="reason-1">
             <span class="reason-ghost" aria-hidden="true">01</span>
             <h3>あなたには当たり前の仕事が、<br><span class="accent">他社には価値</span>になる。</h3>
-            <p>同じ7年でも、担当製品、技術要素、担った工程、改善成果によって、評価される強みは変わります。経験の中身を棚卸しし、採用側が入社後の活躍を具体的に描ける職務経歴書へ一緒に整えます。</p>
+            <p>担当製品や技術要素、工程、改善成果まで棚卸し。経験年数だけでは伝わらない強みを言語化します。</p>
             <div class="fig">
               <span class="fig-label">職務経歴書の伝わり方（例）</span>
               <div class="fig-docs">
@@ -1029,7 +1060,7 @@
           <article class="reason rev" id="reason-2">
             <span class="reason-ghost" aria-hidden="true">02</span>
             <h3>求人票では分からないことを、<br><span class="accent">企業に直接聞いて</span>から提案する。</h3>
-            <p>同じ会社でも、仕事内容や残業、評価のされ方は配属先によって変わります。募集背景、組織体制、任される業務、中途入社者の活躍まで企業へ確認し、入社後のギャップを減らします。</p>
+            <p>募集背景、配属先の体制、任される業務、働き方の実情まで企業へ確認。入社後のギャップを減らします。</p>
             <div class="fig">
               <span class="fig-label">ご提案前に確認していること（例）</span>
               <div class="fig-checks">
@@ -1131,7 +1162,7 @@
       </div>
       <div class="jobs-tabs" role="tablist" aria-label="職種で求人例を切り替え">
         <button class="is-active" data-tab="sales">機械・生産技術</button>
-        <button data-tab="plan">電気電子・制御</button>
+        <button data-tab="plan">電気・電子／制御</button>
         <button data-tab="admin">品質・生産管理</button>
         <button data-tab="it">社内SE・DX</button>
       </div>
@@ -1524,20 +1555,32 @@
     document.getElementById("reason-3")
   ];
   if (!reasonCards.some(function (card) { return !card; })) {
-    /* 各カードのmargin-bottomを実高さに合わせて補正し、
-       スタック退場時も3枚のチラ見せが24pxずつ揃うようにする */
-    var reasonBaseMargins = [274, 250, 226];
+    /* 登場テンポと余韻はこの1つで調整する（03が固定されてから退場が始まるまでのスクロール量）。
+       各カードのmargin-bottomは「margin+高さが末尾カードから24px刻みで揃う」ように自動計算する。
+       この条件が崩れると退場時にカードが別々に動き、クリップが1フレーム遅れて下端がチラつくので
+       個別のカードのmarginを直接いじらないこと */
+    var reasonEndMargin = 92;
+    var reasonPeek = 24;
+    var reasonsListEl = document.querySelector(".reasons-list");
     var syncReasonStackLayout = function () {
       if (innerWidth > 720) {
         reasonCards.forEach(function (card) { card.style.marginBottom = ""; });
+        if (reasonsListEl) reasonsListEl.style.marginBottom = "";
         return;
       }
       var heights = reasonCards.map(function (card) { return card.getBoundingClientRect().height; });
-      var lastHeight = heights[heights.length - 1];
+      var last = heights.length - 1;
+      /* どのカードのmarginも24px未満にならないよう、必要なら末尾marginを持ち上げる */
+      var endMargin = reasonEndMargin;
+      heights.forEach(function (h, i) {
+        endMargin = Math.max(endMargin, 24 + h - heights[last] - reasonPeek * (last - i));
+      });
+      endMargin = Math.round(endMargin);
       reasonCards.forEach(function (card, i) {
-        var margin = Math.max(Math.round(reasonBaseMargins[i] + lastHeight - heights[i]), 24);
+        var margin = Math.round(endMargin + reasonPeek * (last - i) + heights[last] - heights[i]);
         card.style.marginBottom = margin + "px";
       });
+      if (reasonsListEl) reasonsListEl.style.marginBottom = -endMargin + "px";
     };
     var updateReasonStack = function () {
       if (innerWidth > 720) {
@@ -1548,8 +1591,9 @@
       reasonCards.forEach(function (card, i) {
         var visibleBottom = rects[i].bottom;
         for (var j = i + 1; j < rects.length; j++) {
-          /* 角丸18px+2pxぶん深めに隠す。下端ぴったりだと重なったカードの角の丸みから覗く */
-          var safeBottom = rects[j].bottom - 20;
+          /* 48px深めに隠す：角丸18pxからの覗き防止＋高速スクロール時に
+             クリップ更新が1フレーム遅れてもはみ出さないための余裕 */
+          var safeBottom = rects[j].bottom - 48;
           if (rects[j].top < visibleBottom && safeBottom < visibleBottom) {
             visibleBottom = safeBottom;
           }
