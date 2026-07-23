@@ -749,6 +749,12 @@
       .closing-meta { justify-content: center; }
       .closing-form { width: min(650px, 100%); margin-inline: auto; }
     }
+    @media (min-width: 721px) {
+      .closing-title-line { display: inline-block; }
+    }
+    @media (min-width: 1081px) {
+      .closing h2 { font-size: clamp(28px, 3vw, 39px); }
+    }
     @media (max-width: 900px) {
       .site-nav { display: none; }
       .site-header .btn { margin-left: auto; }
@@ -1447,7 +1453,7 @@
     <div class="closing-inner">
       <div class="closing-copy">
         <span class="section-no en rev">10 / Start your next career</span>
-        <h2 class="rev">迷ったまま、<br>また1年が過ぎる前に。</h2>
+        <h2 class="rev">迷ったまま、<br><span class="closing-title-line">また1年が過ぎる前に。</span></h2>
         <p class="rev">転職を決めていなくても構いません。<br>いまの経験で選べる求人と、年収・働き方の可能性を、<br>一度いっしょに整理しませんか。</p>
         <p class="closing-meta rev"><span>完全無料</span><span>平日夜・土曜OK</span><span>オンライン面談対応</span></p>
       </div>
