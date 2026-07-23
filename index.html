@@ -338,15 +338,15 @@
     .fig-docs .arrow { align-self: center; color: var(--blue); font-weight: 700; }
     .fig-checks { display: grid; gap: 8px; }
     .fig-checks > div {
-      display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center;
+      display: grid; grid-template-columns: 8px 1fr auto; gap: 12px; align-items: center;
       padding: 12px 14px; border-radius: 9px; background: #fff; border: 1px solid var(--line);
       font-size: 12.5px; font-weight: 600;
     }
     .fig-checks .c {
-      width: 20px; height: 20px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--sky), var(--blue));
-      color: #fff; font-size: 11px;
+      width: 7px;
+      height: 7px;
+      background: var(--orange);
+      transform: rotate(45deg);
     }
     .fig-checks b { color: var(--blue); font-size: 12.5px; text-align: right; }
     .fig-priorities { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -457,7 +457,7 @@
       display: flex; flex-direction: column;
       padding: 26px 26px 22px;
       background: #fff; border: 1px solid #e4e9ef; border-radius: 16px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 1px 2px rgba(16, 43, 82, .04), 0 14px 28px -22px rgba(16, 43, 82, .48);
     }
     .case-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
     .case-head i {
@@ -479,8 +479,13 @@
     .case-nums small { display: block; color: var(--faint); font-size: 9.5px; font-weight: 600; }
     .case-nums b { color: var(--blue); font-size: 14px; font-weight: 700; }
     .case-nums b .num { font-size: 20px; line-height: 1; }
-    .case blockquote { margin: 0; padding: 14px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; line-height: 1.85; }
-    .case blockquote .stars { display: block; margin-bottom: 6px; color: var(--gold-deep); letter-spacing: 2px; font-size: 12px; }
+    .case-nums .case-salary { white-space: nowrap; font-size: 11px; }
+    .case-nums .case-salary .num { font-size: 18px; }
+    .case blockquote { margin: 0; padding: 14px 0 0; border: 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; line-height: 1.85; }
+    .case-voice-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 7px; }
+    .case-voice-label { color: var(--navy); font-size: 9.5px; font-weight: 700; letter-spacing: .1em; }
+    .case blockquote .stars { color: var(--gold-deep); letter-spacing: 2px; font-size: 11px; white-space: nowrap; }
+    .case blockquote p { margin: 0; color: var(--ink); font-weight: 500; }
     .cases .u-note { text-align: center; }
 
     /* ============ 06 使い方 ============ */
@@ -523,7 +528,7 @@
       display: flex; flex: 0 0 calc((100% - 36px) / 3); flex-direction: column; scroll-snap-align: start;
       padding: 0;
       background: rgba(255,255,255,.96); border: 1px solid rgba(16,43,82,.2); border-radius: 10px;
-      box-shadow: 0 20px 48px rgba(16, 43, 82, .12);
+      box-shadow: 0 1px 2px rgba(16, 43, 82, .04), 0 14px 28px -22px rgba(16, 43, 82, .48);
     }
     .adviser-visual {
       position: relative; height: 226px; overflow: hidden;
@@ -1028,10 +1033,10 @@
             <div class="fig">
               <span class="fig-label">ご提案前に確認していること（例）</span>
               <div class="fig-checks">
-                <div><span class="c">✓</span>募集背景・期待される役割<b>欠員／増員／新規プロジェクト</b></div>
-                <div><span class="c">✓</span>配属先の組織体制<b>人数・役割分担・上司の方針</b></div>
-                <div><span class="c">✓</span>業務範囲と裁量<b>任される工程・意思決定の範囲</b></div>
-                <div><span class="c">✓</span>働き方の運用実態<b>残業・出張・休日出勤の実情</b></div>
+                <div><span class="c" aria-hidden="true"></span>募集背景・期待される役割<b>欠員／増員／新規プロジェクト</b></div>
+                <div><span class="c" aria-hidden="true"></span>配属先の組織体制<b>人数・役割分担・上司の方針</b></div>
+                <div><span class="c" aria-hidden="true"></span>業務範囲と裁量<b>任される工程・意思決定の範囲</b></div>
+                <div><span class="c" aria-hidden="true"></span>働き方の運用実態<b>残業・出張・休日出勤の実情</b></div>
               </div>
             </div>
           </article>
@@ -1157,10 +1162,13 @@
             <div class="to"><small class="en">After</small><b>EV部品<br>先行開発</b></div>
           </div>
           <div class="case-nums">
-            <div><small>年収</small><b><span class="num">420→490</span>万円</b></div>
+            <div><small>年収</small><b class="case-salary"><span class="num">420→490</span>万円</b></div>
             <div><small>領域</small><b>新規開発へ</b></div>
           </div>
-          <blockquote><span class="stars">★★★★★</span>「改良設計の経験を、量産性まで考えられる強みとして評価してもらえました。念願だった新規開発に挑戦できています。」</blockquote>
+          <blockquote>
+            <div class="case-voice-head"><span class="case-voice-label">転職者の声</span><span class="stars">★★★★★</span></div>
+            <p>「改良設計の経験を、量産性まで考えられる強みとして評価してもらえました。念願だった新規開発に挑戦できています。」</p>
+          </blockquote>
         </article>
         <article class="case">
           <div class="case-head"><i>生</i><p>31歳・生産技術（自動車部品）<small>→ 完成車メーカーへ</small></p></div>
@@ -1169,10 +1177,13 @@
             <div class="to"><small class="en">After</small><b>次世代ライン<br>設備企画</b></div>
           </div>
           <div class="case-nums">
-            <div><small>年収</small><b><span class="num">480→560</span>万円</b></div>
+            <div><small>年収</small><b class="case-salary"><span class="num">480→560</span>万円</b></div>
             <div><small>働き方</small><b>フレックス</b></div>
           </div>
-          <blockquote><span class="stars">★★★★★</span>「設備導入と改善の実績を具体化したことで、より上流の設備企画へ進めました。」</blockquote>
+          <blockquote>
+            <div class="case-voice-head"><span class="case-voice-label">転職者の声</span><span class="stars">★★★★★</span></div>
+            <p>「設備導入と改善の実績を具体化したことで、より上流の設備企画へ進めました。」</p>
+          </blockquote>
         </article>
         <article class="case">
           <div class="case-head"><i>電</i><p>29歳・電気設計（装置メーカー）<small>→ 半導体製造装置メーカーへ</small></p></div>
@@ -1181,10 +1192,13 @@
             <div class="to"><small class="en">After</small><b>装置制御<br>回路設計</b></div>
           </div>
           <div class="case-nums">
-            <div><small>年収</small><b><span class="num">430→510</span>万円</b></div>
+            <div><small>年収</small><b class="case-salary"><span class="num">430→510</span>万円</b></div>
             <div><small>領域</small><b>制御設計へ</b></div>
           </div>
-          <blockquote><span class="stars">★★★★★</span>「回路設計だけでなく、立ち上げ時の調整経験まで評価され、技術領域を広げられました。」</blockquote>
+          <blockquote>
+            <div class="case-voice-head"><span class="case-voice-label">転職者の声</span><span class="stars">★★★★★</span></div>
+            <p>「回路設計だけでなく、立ち上げ時の調整経験まで評価され、技術領域を広げられました。」</p>
+          </blockquote>
         </article>
         <article class="case">
           <div class="case-head"><i>品</i><p>33歳・品質保証（電子部品）<small>→ 医療機器メーカーへ</small></p></div>
@@ -1193,10 +1207,13 @@
             <div class="to"><small class="en">After</small><b>医療機器<br>QMS推進</b></div>
           </div>
           <div class="case-nums">
-            <div><small>年収</small><b><span class="num">500→590</span>万円</b></div>
+            <div><small>年収</small><b class="case-salary"><span class="num">500→590</span>万円</b></div>
             <div><small>役割</small><b>QMS推進</b></div>
           </div>
-          <blockquote><span class="stars">★★★★★</span>「監査対応や再発防止の経験を活かし、品質の仕組みづくりに携われるようになりました。」</blockquote>
+          <blockquote>
+            <div class="case-voice-head"><span class="case-voice-label">転職者の声</span><span class="stars">★★★★★</span></div>
+            <p>「監査対応や再発防止の経験を活かし、品質の仕組みづくりに携われるようになりました。」</p>
+          </blockquote>
         </article>
         <article class="case">
           <div class="case-head"><i>調</i><p>30歳・調達（機械部品）<small>→ 大手重工メーカーへ</small></p></div>
@@ -1205,10 +1222,13 @@
             <div class="to"><small class="en">After</small><b>グローバル<br>戦略調達</b></div>
           </div>
           <div class="case-nums">
-            <div><small>年収</small><b><span class="num">470→550</span>万円</b></div>
+            <div><small>年収</small><b class="case-salary"><span class="num">470→550</span>万円</b></div>
             <div><small>担当</small><b>海外調達へ</b></div>
           </div>
-          <blockquote><span class="stars">★★★★★</span>「価格交渉だけでなく、供給リスクを抑えた実績が評価され、より大きな調達戦略を任されています。」</blockquote>
+          <blockquote>
+            <div class="case-voice-head"><span class="case-voice-label">転職者の声</span><span class="stars">★★★★★</span></div>
+            <p>「価格交渉だけでなく、供給リスクを抑えた実績が評価され、より大きな調達戦略を任されています。」</p>
+          </blockquote>
         </article>
         <article class="case">
           <div class="case-head"><i>IT</i><p>34歳・SE（SIer）<small>→ メーカー社内SEへ</small></p></div>
@@ -1217,10 +1237,13 @@
             <div class="to"><small class="en">After</small><b>製造業<br>社内SE</b></div>
           </div>
           <div class="case-nums">
-            <div><small>年収</small><b><span class="num">480→530</span>万円</b></div>
+            <div><small>年収</small><b class="case-salary"><span class="num">480→530</span>万円</b></div>
             <div><small>勤務</small><b>リモート週3</b></div>
           </div>
-          <blockquote><span class="stars">★★★★★</span>「働き方を変えるなら年収は下がると思い込んでいました。両方かなえる求人を条件から逆算してくれました。」</blockquote>
+          <blockquote>
+            <div class="case-voice-head"><span class="case-voice-label">転職者の声</span><span class="stars">★★★★★</span></div>
+            <p>「働き方を変えるなら年収は下がると思い込んでいました。両方かなえる求人を条件から逆算してくれました。」</p>
+          </blockquote>
         </article>
       </div>
       <div class="inline-cta rev">
@@ -1273,7 +1296,7 @@
           </div>
         </div>
         <div class="advisers-grid">
-          <article class="adviser rev">
+          <article class="adviser">
             <div class="adviser-visual">
               <img src="assets/images/advisers/somekawa.jpg" alt="キャリアコンサルタント 染川健太郎" loading="lazy">
               <p class="adviser-quote">転職ありきではなく、<br>現職に残る選択も含めて<br>最善を考えます。</p>
@@ -1287,7 +1310,7 @@
               </div>
             </div>
           </article>
-          <article class="adviser rev rev-d1">
+          <article class="adviser">
             <div class="adviser-visual">
               <img src="assets/images/advisers/makino.jpg" alt="キャリアコンサルタント 牧野寛太" loading="lazy">
               <p class="adviser-quote">転職をゴールにせず、<br>その先のキャリアが好転する<br>選択を支援します。</p>
@@ -1301,7 +1324,7 @@
               </div>
             </div>
           </article>
-          <article class="adviser rev rev-d2">
+          <article class="adviser">
             <div class="adviser-visual">
               <img src="assets/images/advisers/kumazawa.jpg" alt="キャリアコンサルタント 熊澤武始" loading="lazy">
               <p class="adviser-quote">企業との<br>マッチ度にこだわり、<br>後悔しないキャリア選択を<br>支えます。</p>
@@ -1315,7 +1338,7 @@
               </div>
             </div>
           </article>
-          <article class="adviser rev">
+          <article class="adviser">
             <div class="adviser-visual">
               <img src="assets/images/advisers/suzuki-yuya.jpg" alt="キャリアコンサルタント 鈴木侑弥" loading="lazy">
               <p class="adviser-quote">求人票だけでは<br>分からない情報まで届け、<br>専門性が活きる<br>環境を一緒に探します。</p>
@@ -1406,7 +1429,6 @@
       </div>
       <form class="closing-form rev" id="closingForm">
         <div class="closing-form-head">
-          <small class="en">FREE CAREER CONSULTATION</small>
           <h3>無料キャリア相談のお申し込み</h3>
           <p>必要事項をご入力ください。担当者よりご連絡します。</p>
         </div>
