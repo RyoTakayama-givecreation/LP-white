@@ -659,7 +659,7 @@
     .closing-copy > .closing-meta { margin: 0; }
     .closing-meta span { position: relative; padding-left: 14px; }
     .closing-meta span::before { content: ""; position: absolute; left: 1px; top: .48em; width: 5px; height: 5px; border: 1px solid var(--gold); transform: rotate(45deg); }
-    .closing-form { padding: 32px 34px 30px; background: rgba(255,255,255,.96); border: 1px solid rgba(16,43,82,.14); border-radius: 12px; box-shadow: 0 24px 64px rgba(16,43,82,.14); color: var(--ink); }
+    .closing-form { scroll-margin-top: 96px; padding: 32px 34px 30px; background: rgba(255,255,255,.96); border: 1px solid rgba(16,43,82,.14); border-radius: 12px; box-shadow: 0 24px 64px rgba(16,43,82,.14); color: var(--ink); }
     .closing-form-head { margin-bottom: 22px; }
     .closing-form-head small { display: block; margin-bottom: 5px; color: var(--blue); font-size: 9px; font-weight: 750; letter-spacing: .15em; }
     .closing-form-head h3 { margin: 0 0 6px; color: var(--navy); font-family: var(--serif); font-size: 21px; font-weight: 650; }
@@ -1449,7 +1449,7 @@
   </section>
 
   <!-- 10 クロージング -->
-  <section class="closing" id="entry">
+  <section class="closing">
     <div class="closing-inner">
       <div class="closing-copy">
         <span class="section-no en rev">10 / Start your next career</span>
@@ -1457,7 +1457,7 @@
         <p class="rev">転職を決めていなくても構いません。<br>いまの経験で選べる求人と、年収・働き方の可能性を、<br>一度いっしょに整理しませんか。</p>
         <p class="closing-meta rev"><span>完全無料</span><span>平日夜・土曜OK</span><span>オンライン面談対応</span></p>
       </div>
-      <form class="closing-form rev" id="closingForm">
+      <form class="closing-form rev" id="entry">
         <div class="closing-form-head">
           <h3>無料キャリア相談のお申し込み</h3>
           <p>必要事項をご入力ください。担当者よりご連絡します。</p>
@@ -1757,7 +1757,7 @@
   }
 
   /* ============ 最終セクション：通常フォーム ============ */
-  var closingForm = document.getElementById("closingForm");
+  var closingForm = document.getElementById("entry");
   if (closingForm) {
     closingForm.addEventListener("submit", function (event) {
       event.preventDefault();
