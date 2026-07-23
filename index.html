@@ -349,13 +349,19 @@
       color: #fff; font-size: 11px;
     }
     .fig-checks b { color: var(--blue); font-size: 12.5px; text-align: right; }
-    .fig-conds { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
-    .fig-conds span { padding: 6px 13px; border-radius: 999px; border: 1px solid rgba(23, 105, 176, .4); color: var(--blue); font-size: 11.5px; font-weight: 600; background: #fff; }
-    .fig-match { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 15px 16px; border-radius: 10px; background: var(--navy); color: #fff; }
-    .fig-match small { display: block; color: rgba(255, 255, 255, .55); font-size: 9.5px; margin-bottom: 3px; }
-    .fig-match p { margin: 0; font-size: 12.5px; font-weight: 600; line-height: 1.65; }
-    .fig-match .ok { display: flex; flex-direction: column; align-items: flex-end; color: var(--gold); font-weight: 700; font-size: 11px; white-space: nowrap; text-align: right; }
-    .fig-match .ok .num { font-size: 20px; }
+    .fig-priorities { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .fig-priority { padding: 14px 15px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    .fig-priority strong { display: block; margin-bottom: 9px; color: var(--navy); font-size: 13px; }
+    .fig-priority--change { border-color: rgba(23, 105, 176, .28); }
+    .fig-priority--change strong { color: var(--blue); }
+    .fig-priority--keep { border-color: rgba(86, 52, 181, .22); }
+    .fig-priority--keep strong { color: var(--purple); }
+    .fig-priority ul { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .fig-priority li { position: relative; padding-left: 14px; color: var(--muted); font-size: 11.5px; line-height: 1.65; }
+    .fig-priority li::before { content: ""; position: absolute; left: 0; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: .55; }
+    .fig-decision { margin-top: 13px; padding: 2px 2px 0; }
+    .fig-decision p { margin: 0; color: var(--navy); font-family: var(--serif); font-size: clamp(13px, 1.25vw, 16px); font-weight: 600; letter-spacing: .01em; line-height: 1.65; white-space: nowrap; }
+    .fig-decision p span { color: var(--blue); font-weight: 700; }
 
     /* ============ 03 受賞実績 ============ */
     .awards { position: relative; padding-block: 68px 58px; }
@@ -771,7 +777,7 @@
 
       /* 02 理由セクション：スクロールでカードが重なっていくスタック演出 */
       .reasons-list { --reason-stack-top: max(28px, env(safe-area-inset-top)); display: flow-root; margin-bottom: -226px; }
-      .reason { box-sizing: border-box; position: sticky; margin-bottom: 24px; }
+      .reason { box-sizing: border-box; position: sticky; margin-bottom: 24px; box-shadow: none; }
       .reason.rev { opacity: 1; transform: none; transition: none; }
       .reason:nth-of-type(1) { top: var(--reason-stack-top); z-index: 1; margin-bottom: 274px; }
       .reason:nth-of-type(2) { top: calc(var(--reason-stack-top) + 24px); z-index: 2; margin-bottom: 250px; }
@@ -794,12 +800,14 @@
       .fig-checks > div { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; padding: 12px 12px; }
       .fig-checks b { font-size: 12px; text-align: left; }
 
-      /* 条件タグ → 提案カードを安定した縦フローで表示 */
-      .fig-conds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; position: static; margin: 0 0 12px; padding: 0; border: 0; border-radius: 0; background: transparent; transform: none; }
-      .fig-conds span { display: flex; align-items: center; justify-content: center; min-width: 0; padding: 7px 5px; font-size: 10.5px; white-space: nowrap; }
-      .fig-match { position: static; grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 0; z-index: auto; transform: none; box-shadow: 0 12px 24px rgba(16, 43, 82, .12); }
-      .fig-match p { overflow-wrap: anywhere; }
-      .fig-match .ok { flex-direction: row; align-items: baseline; justify-content: flex-start; gap: 6px; padding-top: 9px; border-top: 1px solid rgba(255, 255, 255, .16); text-align: left; }
+      .fig-priorities { gap: 7px; }
+      .fig-priority { padding: 11px 10px; }
+      .fig-priority strong { margin-bottom: 7px; font-size: 12px; }
+      .fig-priority ul { gap: 5px; }
+      .fig-priority li { padding-left: 11px; font-size: 10.5px; line-height: 1.55; }
+      .fig-priority li::before { width: 4px; height: 4px; }
+      .fig-decision { margin-top: 11px; padding: 0; }
+      .fig-decision p { font-size: clamp(11.5px, 3.4vw, 14px); line-height: 1.6; }
       .awards-intro .section-head { text-align: center; }
       .awards-intro { position: relative; z-index: 1; width: 100%; max-width: 100%; overflow: visible; }
       .awards-intro .section-head { width: 100%; max-width: 100%; margin-bottom: 0; }
@@ -1001,43 +1009,54 @@
           <article class="reason rev" id="reason-1">
             <span class="reason-ghost" aria-hidden="true">01</span>
             <h3>あなたには当たり前の仕事が、<br><span class="accent">他社には価値</span>になる。</h3>
-            <p>機械設計を7年、生産技術を5年、で終わらせません。担当製品や技術要素、改善実績まで棚卸しして、採用担当に専門性が伝わる職務経歴書へ一緒に仕上げます。</p>
+            <p>同じ7年でも、担当製品、技術要素、担った工程、改善成果によって、評価される強みは変わります。経験の中身を棚卸しし、採用側が入社後の活躍を具体的に描ける職務経歴書へ一緒に整えます。</p>
             <div class="fig">
-              <span class="fig-label">職務経歴書の変わり方（例）</span>
+              <span class="fig-label">職務経歴書の伝わり方（例）</span>
               <div class="fig-docs">
-                <div class="fig-doc"><small>よくある書き方</small><p>産業機械の機械設計として、既存製品の改良設計を担当。</p></div>
+                <div class="fig-doc"><small>よくある書き方</small><p>産業機械の機械設計を7年間担当。主に既存製品の改良設計に従事。</p></div>
                 <span class="arrow">›</span>
-                <div class="fig-doc good"><small>GIVE CREATIONと直した後</small><p><span class="kw">3D CAD</span>を用いた駆動部設計を担当。部品共通化により原価を<span class="kw">12%削減</span>し、量産立ち上げまで推進。</p></div>
+                <div class="fig-doc good"><small>GIVE CREATIONと直した後</small><p><span class="kw">3D CAD</span>による駆動部の詳細設計から試作評価、量産立ち上げまで担当。部品共通化を主導し、原価を<span class="kw">12%削減</span>。</p></div>
               </div>
             </div>
           </article>
           <article class="reason rev" id="reason-2">
             <span class="reason-ghost" aria-hidden="true">02</span>
             <h3>求人票では分からないことを、<br><span class="accent">企業に直接聞いて</span>から提案する。</h3>
-            <p>残業の実測値、中途入社者の昇進事例、チームの雰囲気や退職理由まで。入社後のギャップを防ぐために、確認してからご案内します。</p>
+            <p>同じ会社でも、仕事内容や残業、評価のされ方は配属先によって変わります。募集背景、組織体制、任される業務、中途入社者の活躍まで企業へ確認し、入社後のギャップを減らします。</p>
             <div class="fig">
               <span class="fig-label">ご提案前に確認していること（例）</span>
               <div class="fig-checks">
-                <div><span class="c">✓</span>残業時間の実測値<b>月平均 18h（部署単位）</b></div>
-                <div><span class="c">✓</span>中途入社者の昇進事例<b>入社3年でマネージャー2名</b></div>
-                <div><span class="c">✓</span>評価制度の運用実態<b>半期ごと・基準を開示</b></div>
-                <div><span class="c">✓</span>直近1年の中途定着率<b>94%</b></div>
+                <div><span class="c">✓</span>募集背景・期待される役割<b>欠員／増員／新規プロジェクト</b></div>
+                <div><span class="c">✓</span>配属先の組織体制<b>人数・役割分担・上司の方針</b></div>
+                <div><span class="c">✓</span>業務範囲と裁量<b>任される工程・意思決定の範囲</b></div>
+                <div><span class="c">✓</span>働き方の運用実態<b>残業・出張・休日出勤の実情</b></div>
               </div>
             </div>
           </article>
           <article class="reason rev" id="reason-3">
             <span class="reason-ghost" aria-hidden="true">03</span>
             <h3>譲れない条件を先に決めて、<br><span class="accent">合う求人だけ</span>をご提案。</h3>
-            <p>年収、休日、残業、勤務地、仕事内容。最初に譲れない条件を整理し、合わない求人で妥協を迫ることはありません。無理な応募も勧めません。</p>
+            <p>年収、勤務地、働き方、仕事内容。希望をそのまま検索条件にするのではなく、転職で変えたいことと守りたいことを整理します。判断軸を揃え、納得できる選択肢だけをご提案します。</p>
             <div class="fig">
-              <span class="fig-label">条件の整理 → 提案のイメージ</span>
-              <div class="fig-conds"><span>年収 500万円〜</span><span>土日休み</span><span>残業 月20h以内</span><span>リモート週2〜</span></div>
-              <div class="fig-match">
-                <div>
-                  <small class="en">Proposal</small>
-                  <p>ITサービス企業／事業企画<br>年収 520〜600万円・フルフレックス</p>
+              <span class="fig-label">転職で変えたいこと・守りたいこと</span>
+              <div class="fig-priorities">
+                <div class="fig-priority fig-priority--change">
+                  <strong>変えたいこと</strong>
+                  <ul>
+                    <li>改良設計中心から、新規設計へ</li>
+                    <li>残業月30時間超から、月20時間以内へ</li>
+                  </ul>
                 </div>
-                <span class="ok"><span class="num">4/4</span><span>条件一致</span></span>
+                <div class="fig-priority fig-priority--keep">
+                  <strong>守りたいこと</strong>
+                  <ul>
+                    <li>年収500万円以上</li>
+                    <li>転勤なし</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="fig-decision">
+                <p>この判断軸をもとに、<span>合う求人だけをご提案</span></p>
               </div>
             </div>
           </article>
@@ -1474,25 +1493,60 @@
     row2.innerHTML = logoGroup(17, 32) + logoGroup(17, 32);
   }
 
-  /* ============ スマホ：理由カード3枚の高さを統一 ============ */
-  var reason1 = document.getElementById("reason-1");
-  var reason2 = document.getElementById("reason-2");
-  var reason3 = document.getElementById("reason-3");
-  function syncReasonCardHeight() {
-    var reasonCards = [reason1, reason2, reason3];
-    if (reasonCards.some(function (card) { return !card; })) return;
-    reasonCards.forEach(function (card) { card.style.minHeight = ""; });
-    if (innerWidth <= 720) {
-      var maxHeight = Math.max.apply(null, reasonCards.map(function (card) {
-        return Math.ceil(card.getBoundingClientRect().height);
-      }));
-      reasonCards.forEach(function (card) { card.style.minHeight = maxHeight + "px"; });
+  /* ============ スマホ：理由カードは自然な高さのまま、下に重なったカードからはみ出す部分だけクリップ ============ */
+  var reasonCards = [
+    document.getElementById("reason-1"),
+    document.getElementById("reason-2"),
+    document.getElementById("reason-3")
+  ];
+  if (!reasonCards.some(function (card) { return !card; })) {
+    /* 各カードのmargin-bottomを実高さに合わせて補正し、
+       スタック退場時も3枚のチラ見せが24pxずつ揃うようにする */
+    var reasonBaseMargins = [274, 250, 226];
+    var syncReasonStackLayout = function () {
+      if (innerWidth > 720) {
+        reasonCards.forEach(function (card) { card.style.marginBottom = ""; });
+        return;
+      }
+      var heights = reasonCards.map(function (card) { return card.getBoundingClientRect().height; });
+      var lastHeight = heights[heights.length - 1];
+      reasonCards.forEach(function (card, i) {
+        var margin = Math.max(Math.round(reasonBaseMargins[i] + lastHeight - heights[i]), 24);
+        card.style.marginBottom = margin + "px";
+      });
+    };
+    var updateReasonStack = function () {
+      if (innerWidth > 720) {
+        reasonCards.forEach(function (card) { card.style.clipPath = ""; });
+        return;
+      }
+      var rects = reasonCards.map(function (card) { return card.getBoundingClientRect(); });
+      reasonCards.forEach(function (card, i) {
+        var visibleBottom = rects[i].bottom;
+        for (var j = i + 1; j < rects.length; j++) {
+          /* 角丸18px+2pxぶん深めに隠す。下端ぴったりだと重なったカードの角の丸みから覗く */
+          var safeBottom = rects[j].bottom - 20;
+          if (rects[j].top < visibleBottom && safeBottom < visibleBottom) {
+            visibleBottom = safeBottom;
+          }
+        }
+        var cut = rects[i].bottom - visibleBottom;
+        card.style.clipPath = cut > 0.5 ? "inset(0 0 " + Math.ceil(cut) + "px 0)" : "";
+      });
+    };
+    syncReasonStackLayout();
+    updateReasonStack();
+    addEventListener("scroll", updateReasonStack, { passive: true });
+    addEventListener("resize", function () {
+      syncReasonStackLayout();
+      updateReasonStack();
+    }, { passive: true });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        syncReasonStackLayout();
+        updateReasonStack();
+      });
     }
-  }
-  syncReasonCardHeight();
-  addEventListener("resize", syncReasonCardHeight, { passive: true });
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(syncReasonCardHeight);
   }
 
   /* ============ 理由セクション：現在地＋進捗 ============ */
